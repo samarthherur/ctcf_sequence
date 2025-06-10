@@ -170,7 +170,12 @@ def plot_fasta_heatmap(fasta_file):
     plt.ylabel('Sequence number')
     #title
     plt.title('Neighbourhood Heatmap')
-    plt.show()
+    # Save heatmap to output directory
+    output_dir = os.path.dirname(fasta_file)
+    heatmap_fname = os.path.join(output_dir, f"{os.path.basename(fasta_file).rsplit('.',1)[0]}_heatmap.png")
+    fig.savefig(heatmap_fname)
+    plt.close(fig)
+    # plt.show()
     
 #####################################################################################################################
 
@@ -201,7 +206,12 @@ def plot_logo_from_fasta(fasta_input):
         df = df.drop(columns = ['N'])    
     #plot the logo
     lm.Logo(df)
-    plt.show()
+    # Save sequence logo to output directory
+    output_dir = os.path.dirname(fasta_input)
+    logo_fname = os.path.join(output_dir, f"{os.path.basename(fasta_input).rsplit('.',1)[0]}_logo.png")
+    plt.gcf().savefig(logo_fname)
+    plt.close()
+    # plt.show()
 
 #####################################################################################################################
 
@@ -300,25 +310,19 @@ def matrix_neighbourhood(neighbourhood_bed_file, chipseq_bed, boundary_bed, outp
     df.to_csv(output_dir + 'neighbourhood_matrix.tsv', sep="\t", index=False)
     print(f'Neighbourhood matrix saved as {output_dir}neighbourhood_matrix.tsv')
     
- #####################################################################################################################   
-
+def fasta_without_repeats(fasta_path):
+    """
+    Read a FASTA, filter out sequences containing N/n or lowercase letters,
+    and return the filtered SeqRecord list and count of retained sequences.
+    """
+    from Bio import SeqIO
+    seqs = []
+    total = 0
+    for rec in SeqIO.parse(fasta_path, "fasta"):
+        total += 1
+        s = str(rec.seq)
+        if "N" in s or "n" in s or not s.isupper():
+            continue
+        seqs.append(rec)
+    return seqs, len(seqs)
     
-#  #function to remove all sequences that contain lowercase letters or N or n
-#  ###function does not work
-# def remove_repeats(fasta_file):
-#     new_fastalist = []
-#     #parse the fasta file
-#     fasta = list(SeqIO.parse(fasta_file, 'fasta'))
-#     for record in fasta:
-#         seq = record.seq
-#         seq1 = str(seq)
-#         if 'n' in seq1 or 'N' in seq1 or not seq1.isupper():
-#             continue
-#         else:
-#             new_fastalist.append(record)
-#     SeqIO.write(new_fastalist, fasta_file[:-6] + '_rmvrpt.fasta', 'fasta')
-    
-# #####################################################################################################################
-
-        
-

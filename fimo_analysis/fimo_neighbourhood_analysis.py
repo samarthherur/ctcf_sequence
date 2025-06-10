@@ -9,6 +9,8 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 import scipy.stats as stats
+import motif_strength_script
+from itertools import combinations
 
 ### Ignore warnings
 import warnings 
@@ -46,49 +48,42 @@ def main():
     report_path = os.path.join(output_dir, 'summary.txt')
     report = open(report_path, 'w')
 
-
-    #print the fimo file head
-    fimo = pd.read_csv(fimo_filepath, sep='\t')
-    fimo.head()
-
     #get FASTA file
     fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, neighbourhood_size=neighbourhood_size)
 
     #plot heatmap
-    plot_fasta_heatmap(output_dir + 'fimo_neighbourhood_50.fasta')
+    plot_fasta_heatmap(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}.fasta"))
 
-    plot_logo_from_fasta(output_dir + 'fimo_neighbourhood_50.fasta')
+    plot_logo_from_fasta(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}.fasta"))
 
     #median value of score in fimo_neighbourhood_50.fasta
-    neigh_bed = pd.read_csv(output_dir + 'fimo_neighbourhood_50.bed', sep='\t', header=None)
+    neigh_bed = pd.read_csv(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}.bed"), sep='\t', header=None)
 
     median_all = neigh_bed[4].median()
     report.write(f"Median score (all neighbourhoods): {median_all}\n")
 
-    chip_filtered_neighbourhood(output_dir + 'fimo_neighbourhood_50.bed', chip_filepath, genome_fasta)
-    plot_fasta_heatmap(output_dir + 'fimo_neighbourhood_50_filtered.fasta')
-    plot_logo_from_fasta(output_dir + 'fimo_neighbourhood_50_filtered.fasta')
+    chip_filtered_neighbourhood(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}.bed"), chip_filepath, genome_fasta)
+    plot_fasta_heatmap(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered.fasta"))
+    plot_logo_from_fasta(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered.fasta"))
 
     #filter the neighbourhoods that intersect the boundary
-    intersect_filtered_neighbourhood_boundary(output_dir + 'fimo_neighbourhood_50_filtered.bed', boundary, genome_fasta)
+    intersect_filtered_neighbourhood_boundary(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered.bed"), boundary, genome_fasta)
 
     #plot the heatmap
-    print('Plotting heatmap for filtered neighbourhoods that intersect the boundary')
-    plot_fasta_heatmap(output_dir + 'fimo_neighbourhood_50_filtered_int_boundary.fasta')
-    plot_logo_from_fasta(output_dir + 'fimo_neighbourhood_50_filtered_int_boundary.fasta')
+    plot_fasta_heatmap(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered_int_boundary.fasta"))
+    plot_logo_from_fasta(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered_int_boundary.fasta"))
 
-    print('Plotting heatmap for filtered neighbourhoods that do not intersect the boundary')
-    plot_fasta_heatmap(output_dir + 'fimo_neighbourhood_50_filtered_no_int_boundary.fasta')
-    plot_logo_from_fasta(output_dir + 'fimo_neighbourhood_50_filtered_no_int_boundary.fasta')
+    plot_fasta_heatmap(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered_no_int_boundary.fasta"))
+    plot_logo_from_fasta(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered_no_int_boundary.fasta"))
 
     #read in int bed file
-    int_bed = pd.read_csv(output_dir + 'fimo_neighbourhood_50_filtered_int_boundary.bed', sep='\t', header=None)
+    int_bed = pd.read_csv(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered_int_boundary.bed"), sep='\t', header=None)
 
     median_int = int_bed[4].median()
     report.write(f"Median score (intersecting boundary): {median_int}\n")
 
     #read in no int bed file
-    no_int_bed = pd.read_csv(output_dir + 'fimo_neighbourhood_50_filtered_no_int_boundary.bed', sep='\t', header=None)
+    no_int_bed = pd.read_csv(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered_no_int_boundary.bed"), sep='\t', header=None)
 
     median_no_int = no_int_bed[4].median()
     report.write(f"Median score (non-intersecting boundary): {median_no_int}\n")
@@ -115,31 +110,88 @@ def main():
     report.write(f"KS test statistic: {statistic}\n")
     report.write(f"KS test p-value: {pvalue}\n")
 
+    # Run motif strength classification using same inputs
+    filtered_fimo = os.path.join(output_dir, 'fimo_filtered.tsv')
+    motif_strength_script.filter_fimo_by_ctcf_peaks(
+        fimo_filepath,
+        chip_filepath,
+        filtered_fimo
+    )
+    classified_motifs = os.path.join(output_dir, 'classified_motifs.tsv')
+    motif_strength_script.main(
+        boundary,
+        filtered_fimo,
+        classified_motifs
+    )
+    report.write(f"Filtered FIMO saved to: {filtered_fimo}\n")
+    report.write(f"Classified motifs saved to: {classified_motifs}\n")
+
+    # Analyze classified motifs
+    classified_motifs_filepath = classified_motifs
+    classified_df = pd.read_csv(classified_motifs_filepath, sep='\t')
+    total = len(classified_df)
+    report.write(f"Total classified motifs: {total}\n")
+
+    # Counts per class
+    classes = np.sort(classified_df['classification'].unique())
+    for cls in classes:
+        count = (classified_df['classification'] == cls).sum()
+        report.write(f"Count {cls}: {count}\n")
+
+    # Median score per class
+    for cls in classes:
+        median_cls = classified_df.loc[classified_df['classification']==cls, 'score'].median()
+        report.write(f"Median score {cls}: {median_cls}\n")
+
+    # KS tests between classes
+    for c1, c2 in combinations(classes, 2):
+        data1 = classified_df.loc[classified_df['classification']==c1, 'score']
+        data2 = classified_df.loc[classified_df['classification']==c2, 'score']
+        stat, pval = stats.ks_2samp(data1, data2)
+        report.write(f"KS {c1} vs {c2}: stat={stat}, p={pval}\n")
+
+    # Density plot of score distributions
+    plt.figure()
+    for cls in classes:
+        sns.kdeplot(classified_df.loc[classified_df['classification']==cls, 'score'], shade=True, label=cls)
+    plt.xlabel('Scores')
+    plt.ylabel('Density')
+    plt.legend()
+    density_fig = os.path.join(output_dir, 'classification_density.png')
+    plt.savefig(density_fig)
+    plt.close()
+    report.write(f"Density plot saved to: {density_fig}\n")
+
+    # Filter out sequences with repeats from the filtered neighbourhood FASTA
+    filtered_fasta = os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered.fasta")
+    seqs_wr, n_wr = fasta_without_repeats(filtered_fasta)
+    report.write(f"Sequences without repeats: {n_wr}\n")
+
+    # Count nucleotides in repeat-free sequences
+    count_dict = {}
+    for rec in seqs_wr:
+        for nt in rec.seq:
+            count_dict[nt] = count_dict.get(nt, 0) + 1
+    report.write("Base counts without repeats:\n")
+    for nt in sorted(count_dict):
+        report.write(f"{nt}: {count_dict[nt]}\n")
+
+    # Save repeat-free FASTA
+    wr_fasta = filtered_fasta.replace('.fasta', '_wr.fasta')
+    from Bio import SeqIO
+    SeqIO.write(seqs_wr, wr_fasta, 'fasta')
+    report.write(f"Saved repeat-free FASTA to: {wr_fasta}\n")
+
+    # Plot heatmap and logo for repeat-free FASTA
+    plot_fasta_heatmap(wr_fasta)
+    plot_logo_from_fasta(wr_fasta)
+    report.write("Saved heatmap and logo for repeat-free sequences\n")
+
     #inputs for matrix generation - fimo_neighbourhood_50.bed, chip_filepath, boundary, output_dir
-    matrix_neighbourhood(output_dir + 'fimo_neighbourhood_50.bed', chip_filepath, boundary, output_dir)
+    matrix_neighbourhood(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}.bed"), chip_filepath, boundary, output_dir)
 
     #count number of 1s in each column
-    matrix = pd.read_csv(output_dir + 'neighbourhood_matrix.tsv', sep='\t') 
-
-    matrix.head()
-
-    #unique values in the chip column
-    print('Unique values in the chip column')
-    print(matrix['chip'].unique())
-
-    #unique values in the boundary column
-    print('Unique values in the boundary column')
-    print(matrix['boundary'].unique())
-
-
-    #count number of 1s in each column
-    #number of 1s in matrix['chip'}
-    print('Number of 1s in the chip column')
-    print(matrix['chip'].sum())
-
-    #number of 1s in matrix['boundary']
-    print('Number of 1s in the boundary column')
-    print(matrix['boundary'].sum())
+    matrix = pd.read_csv(os.path.join(output_dir, f"neighbourhood_matrix.tsv"), sep='\t') 
 
     report.close()
 
