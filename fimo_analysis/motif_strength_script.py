@@ -230,6 +230,52 @@ def filter_fimo_by_ctcf_peaks(fimo_tsv, ctcf_peaks_bed, output_tsv):
     
 ##############################################################################################################
 
+##############################################################################################################
+# -------------------------------------------------------------------------------------------------
+def summarize_classified_motifs(classified_tsv, output_dir, report):
+    """
+    Summarize classified motifs: counts, medians, KS tests, and density plot.
+    """
+    import pandas as pd
+    import numpy as np
+    import scipy.stats as stats
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import os
+    from itertools import combinations
+
+    df = pd.read_csv(classified_tsv, sep='\t')
+    total = len(df)
+    report.write(f"Total classified motifs: {total}\n")
+
+    classes = np.sort(df['classification'].unique())
+    for cls in classes:
+        cnt = (df['classification'] == cls).sum()
+        report.write(f"Count {cls}: {cnt}\n")
+
+    for cls in classes:
+        med = df.loc[df['classification']==cls, 'score'].median()
+        report.write(f"Median score {cls}: {med}\n")
+
+    for c1, c2 in combinations(classes, 2):
+        stat, pval = stats.ks_2samp(
+            df.loc[df['classification']==c1, 'score'],
+            df.loc[df['classification']==c2, 'score']
+        )
+        report.write(f"KS {c1} vs {c2}: stat={stat}, p={pval}\n")
+
+    plt.figure(figsize=(8, 6))
+    for cls in classes:
+        sns.kdeplot(df.loc[df['classification']==cls, 'score'], shade=True, label=cls)
+    plt.xlabel('Scores')
+    plt.ylabel('Density')
+    plt.legend()
+    plt.tight_layout()
+    outfile = os.path.join(output_dir, 'classification_density.png')
+    plt.savefig(outfile)
+    plt.close()
+    report.write(f"Density plot saved to: {outfile}\n")
+
 # Example usage
 if __name__ == '__main__':
     boundary_file = '/home/samarth/dekker_microc/H1ESC/4DNFIED5HLDC.bed'

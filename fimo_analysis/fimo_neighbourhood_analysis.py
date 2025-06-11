@@ -21,6 +21,8 @@ warnings.filterwarnings("ignore")
 
 # === Import custom pipeline functions from functions_script ===
 from functions_script import *
+from functions_script import plot_intersect_distribution, count_neighbourhood_windows
+from motif_strength_script import summarize_classified_motifs
 
 import argparse
 
@@ -96,38 +98,7 @@ def main():
     median_no_int = no_int_bed[4].median()
     report.write(f"Median score (non-intersecting boundary): {median_no_int}\n")
 
-    # determine common range and bin edges
-    min_score = min(int_bed[4].min(), no_int_bed[4].min())
-    max_score = max(int_bed[4].max(), no_int_bed[4].max())
-    bins = np.linspace(min_score, max_score, 30)   # you can adjust 30 to any number of bins you like
-
-    plt.figure(figsize=(8, 6))
-
-    # histogram outlines
-    sns.histplot(int_bed[4], bins=bins, stat="density", element="step", fill=False,
-                label="Intersect", linewidth=1.5)
-    sns.histplot(no_int_bed[4], bins=bins, stat="density", element="step", fill=False,
-                label="No Intersect", linewidth=1.5)
-
-    # KDE overlays
-    sns.kdeplot(int_bed[4], bw_adjust=1, linewidth=2, label="Intersect KDE")
-    sns.kdeplot(no_int_bed[4], bw_adjust=1, linewidth=2, label="No Intersect KDE")
-
-    plt.xlabel("Scores")
-    plt.ylabel("Density")
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, "score_distribution.png"))
-    plt.close()
-
-    #plot using histplot
-    plt.figure()
-    sns.histplot(int_bed[4], label='Intersect', kde=True, stat='density')
-    sns.histplot(no_int_bed[4], label='No Intersect', kde=True, stat='density')
-    plt.xlabel('Scores')
-    plt.legend()
-    plt.savefig(os.path.join(output_dir, 'score_histogram.png'))
-    plt.close()
+    plot_intersect_distribution(int_bed[4], no_int_bed[4], output_dir, neighbourhood_size)
 
     # -- Perform Kolmogorov–Smirnov test between intersecting and non-intersecting scores --
     statistic, pvalue = stats.ks_2samp(int_bed[4], no_int_bed[4])
@@ -150,41 +121,7 @@ def main():
     report.write(f"Filtered FIMO saved to: {filtered_fimo}\n")
     report.write(f"Classified motifs saved to: {classified_motifs}\n")
 
-    # -- Load classified motifs and log counts, medians, and KS tests per class --
-    classified_motifs_filepath = classified_motifs
-    classified_df = pd.read_csv(classified_motifs_filepath, sep='\t')
-    total = len(classified_df)
-    report.write(f"Total classified motifs: {total}\n")
-
-    # Counts per class
-    classes = np.sort(classified_df['classification'].unique())
-    for cls in classes:
-        count = (classified_df['classification'] == cls).sum()
-        report.write(f"Count {cls}: {count}\n")
-
-    # Median score per class
-    for cls in classes:
-        median_cls = classified_df.loc[classified_df['classification']==cls, 'score'].median()
-        report.write(f"Median score {cls}: {median_cls}\n")
-
-    # KS tests between classes
-    for c1, c2 in combinations(classes, 2):
-        data1 = classified_df.loc[classified_df['classification']==c1, 'score']
-        data2 = classified_df.loc[classified_df['classification']==c2, 'score']
-        stat, pval = stats.ks_2samp(data1, data2)
-        report.write(f"KS {c1} vs {c2}: stat={stat}, p={pval}\n")
-
-    # -- Plot and save density distributions for each motif class --
-    plt.figure()
-    for cls in classes:
-        sns.kdeplot(classified_df.loc[classified_df['classification']==cls, 'score'], shade=True, label=cls)
-    plt.xlabel('Scores')
-    plt.ylabel('Density')
-    plt.legend()
-    density_fig = os.path.join(output_dir, 'classification_density.png')
-    plt.savefig(density_fig)
-    plt.close()
-    report.write(f"Density plot saved to: {density_fig}\n")
+    summarize_classified_motifs(classified_motifs, output_dir, report)
 
     # -- Filter out sequences containing Ns or lowercase bases and log base counts --
     filtered_fasta = os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered.fasta")
@@ -202,7 +139,6 @@ def main():
 
     # -- Write cleaned FASTA of repeat-free sequences --
     wr_fasta = filtered_fasta.replace('.fasta', '_wr.fasta')
-    from Bio import SeqIO
     SeqIO.write(seqs_wr, wr_fasta, 'fasta')
     report.write(f"Saved repeat-free FASTA to: {wr_fasta}\n")
 
@@ -210,6 +146,8 @@ def main():
     plot_fasta_heatmap(wr_fasta)
     plot_logo_from_fasta(wr_fasta)
     report.write("Saved heatmap and logo for repeat-free sequences\n")
+
+    count_neighbourhood_windows(output_dir, neighbourhood_size, report)
 
     # -- Generate binary overlap matrix for ChIP and boundary on each window --
     matrix_neighbourhood(os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}.bed"), chip_filepath, boundary, output_dir)

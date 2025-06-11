@@ -326,3 +326,65 @@ def fasta_without_repeats(fasta_path):
         seqs.append(rec)
     return seqs, len(seqs)
     
+
+# -------------------------------------------------------------------------------------------------
+# Plot intersect vs. non-intersect score distributions
+def plot_intersect_distribution(int_scores, no_int_scores, output_dir, neighbourhood_size, bins=30):
+    """
+    Plot & save histogram + KDE comparing intersect vs non-intersect scores.
+    """
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import os
+
+    # define bins across combined range
+    min_score = min(int_scores.min(), no_int_scores.min())
+    max_score = max(int_scores.max(), no_int_scores.max())
+    bin_edges = np.linspace(min_score, max_score, bins)
+
+    colors = {"Intersect": "tab:blue", "No Intersect": "tab:orange"}
+    plt.figure(figsize=(8, 6))
+    sns.histplot(int_scores, bins=bin_edges, stat="density", element="step",
+                 fill=True, color=colors["Intersect"], alpha=0.3, label="Intersect")
+    sns.histplot(no_int_scores, bins=bin_edges, stat="density", element="step",
+                 fill=True, color=colors["No Intersect"], alpha=0.3, label="No Intersect")
+    sns.kdeplot(int_scores, bw_adjust=1, linewidth=2, color=colors["Intersect"], label="Intersect KDE")
+    sns.kdeplot(no_int_scores, bw_adjust=1, linewidth=2, color=colors["No Intersect"], label="No Intersect KDE")
+    plt.xlabel("Scores")
+    plt.ylabel("Density")
+    plt.legend()
+    plt.tight_layout()
+    outfile = os.path.join(output_dir, f"score_distribution_{neighbourhood_size}.png")
+    plt.savefig(outfile)
+    plt.close()
+
+
+# -------------------------------------------------------------------------------------------------
+# Count windows for various neighbourhood stages and repeat-free sequences
+def count_neighbourhood_windows(output_dir, neighbourhood_size, report):
+    """
+    Count windows for raw, filtered, intersecting, non-intersecting stages,
+    plus repeat-free sequences, writing counts to report.
+    """
+    import os
+    from Bio import SeqIO
+
+    stages = {
+        'raw': f"fimo_neighbourhood_{neighbourhood_size}.bed",
+        'filtered': f"fimo_neighbourhood_{neighbourhood_size}_filtered.bed",
+        'int_boundary': f"fimo_neighbourhood_{neighbourhood_size}_filtered_int_boundary.bed",
+        'no_int_boundary': f"fimo_neighbourhood_{neighbourhood_size}_filtered_no_int_boundary.bed"
+    }
+    for name, fname in stages.items():
+        path = os.path.join(output_dir, fname)
+        if os.path.exists(path):
+            with open(path) as bf:
+                cnt = sum(1 for _ in bf)
+            report.write(f"Number of {name} neighbourhood windows: {cnt}\n")
+
+    wr_fasta = os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered_wr.fasta")
+    if os.path.exists(wr_fasta):
+        cnt = sum(1 for _ in SeqIO.parse(wr_fasta, "fasta"))
+        report.write(f"Number of repeat-free sequences: {cnt}\n")
+    
