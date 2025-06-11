@@ -85,3 +85,29 @@ This script implements an end-to-end pipeline to take raw FIMO motif calls and i
 ---
 
 _All results (metrics, statistics, and plots) are logged to `summary.txt` and accompanying PNG files in the specified output folder._  
+
+## Usage Overview: Input Arguments
+
+Below is a description of each command‐line argument you supply to `fimo_neighbourhood_analysis.py`:
+
+| Argument               | Type       | Required  | Description                                                                                                                                         |
+|------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--fimo_filepath`      | string     | yes       | Path to the **raw FIMO TSV** file containing motif occurrences (chromosome, start, end, score, p-value, etc.).                                      |
+| `--genome_fasta`       | string     | yes       | Path to the **reference genome FASTA**. Used by `bedtools getfasta` to extract the ±neighborhood window around each motif hit.                     |
+| `--chip_filepath`      | string     | yes       | Path to the **ChIP-seq peaks BED** file. Windows that overlap these regions are retained during the ChIP-filtering step.                             |
+| `--boundary`           | string     | yes       | Path to the **boundary regions BED** file. Filtered windows are split into “intersect” vs. “non-intersect” groups based on these coordinates.        |
+| `--output_dir`         | string     | yes       | Directory where all outputs will be written (created if it doesn’t exist). Contains FASTA/BED files, PNG figures, matrices, and `summary.txt`.     |
+| `--neighbourhood_size` | integer    | no (50)   | Number of base-pairs to extend **upstream and downstream** of each motif hit when constructing its “neighborhood” window. Defaults to **50 bp**.    |
+| `--ignore_repeats`     | flag       | no        | If provided, **skip** the step that filters out sequences containing `N`/`n` or lowercase letters from the neighborhood FASTA.                       |
+
+### Example Invocation
+
+```bash
+python fimo_neighbourhood_analysis.py \
+  --fimo_filepath   ~/data/fimo_ctcf.tsv \
+  --genome_fasta    ~/genomes/hg38.fa \
+  --chip_filepath   ~/data/ENCFF294RSZ.bed \
+  --boundary        ~/data/boundaries.bed \
+  --output_dir      ~/results/fimo_analysis/ \
+  --neighbourhood_size 100 \
+  --ignore_repeats
