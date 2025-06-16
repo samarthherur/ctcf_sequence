@@ -142,6 +142,7 @@ def main():
 
     # Update architecture details file if mapping TSV provided
     update_architecture_details(base_dir, args.cluster_map_tsv)
+
     
 if __name__ == "__main__":
     main()
