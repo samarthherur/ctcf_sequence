@@ -6,15 +6,18 @@ import matplotlib.pyplot as plt
 import argparse
 import json
 import subprocess
+import csv
 
 from nplb_helper_functions import *
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Compute avg gene distances per cluster")
-    parser.add_argument("--tss_bed", "-t", required=True, help="Path to TSS BED file")
-    parser.add_argument("--nplb_bed", "-n", required=True, help="Path to nplb_clustered.bed")
-    parser.add_argument("--phastcons_bw", "-p", required=True,
-                        help="Path to the phastCons bigWig file")
+    parser.add_argument("--tss_bed", "-t", required=False, default=None,
+                        help="(Optional) Path to TSS BED file")
+    parser.add_argument("--nplb_bed", "-n", required=False, default=None,
+                        help="(Optional) Path to nplb_clustered.bed")
+    parser.add_argument("--phastcons_bw", "-p", required=False, default=None,
+                        help="(Optional) Path to the phastCons bigWig file")
     parser.add_argument(
         "--metric", "-m",
         choices=["avg_dist","avg_binding","avg_phastcons","hybrid","none"],
@@ -33,6 +36,12 @@ def parse_args():
         default="",
         help="Comma-separated list of cluster IDs whose strand should be flipped"
     )
+    parser.add_argument(
+        "--cluster_map_tsv",
+        required=False,
+        default=None,
+        help="Optional path to cluster mapping TSV"
+    )
     return parser.parse_args()
 
 def main():
@@ -46,6 +55,14 @@ def main():
     delete_clusters = [s.strip() for s in args.delete_clusters.split(",") if s.strip()]
     flip_clusters = [s.strip() for s in args.flip_clusters.split(",") if s.strip()]
 
+    # Validate metric requirements
+    import sys
+    if metric in ("avg_dist","hybrid") and not tss_bed:
+        sys.exit("ERROR: --metric %s requires --tss_bed" % metric)
+    if metric in ("avg_binding","hybrid") and not nplb_bed:
+        sys.exit("ERROR: --metric %s requires --nplb_bed" % metric)
+    if metric == "avg_phastcons" and not phastcons_bw:
+        sys.exit("ERROR: --metric %s requires --phastcons_bw" % metric)
     base_dir = os.path.dirname(nplb_bed)
     work_dir = os.path.join(base_dir, "gene_distances")
     os.makedirs(work_dir, exist_ok=True)
@@ -122,5 +139,33 @@ def main():
     map_out = os.path.join(base_dir, "cluster_mapping.tsv")
     map_df.to_csv(map_out, sep='\t', index=False)
     print(f"Saved cluster mapping to {map_out}")
+
+    # -- Update architectureDetails by mapping clusters --
+    # Load mapping from TSV if provided
+    cluster_mapping = {}
+    if getattr(args, "cluster_map_tsv", None):
+        with open(args.cluster_map_tsv, newline='') as mf:
+            reader = csv.DictReader(mf, delimiter='\t')
+            for row in reader:
+                orig = str(row['original_cluster_id'])
+                mapped = row['mapped_cluster_id']
+                if mapped in (None, '', 'None'):
+                    mapped_val = None
+                else:
+                    mapped_val = int(mapped)
+                cluster_mapping[orig] = mapped_val
+    else:
+        cluster_mapping = None
+
+    arch_path = os.path.join(base_dir, 'architectureDetails.txt')
+    if os.path.exists(arch_path) and cluster_mapping is not None:
+        arch = pd.read_csv(arch_path, sep='\t', header=None)
+        # Map first column
+        arch.iloc[:,0] = arch.iloc[:,0].astype(str).map(cluster_mapping)
+        arch = arch.dropna(subset=[0])
+        arch.iloc[:,0] = arch.iloc[:,0].astype(int)
+        updated_path = os.path.join(base_dir, 'architectureDetails_updated.txt')
+        arch.to_csv(updated_path, sep='\t', header=False, index=False)
+        print(f"Saved updated architecture details to {updated_path}")
 if __name__ == "__main__":
     main()
