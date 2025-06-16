@@ -15,6 +15,24 @@ def parse_args():
     parser.add_argument("--nplb_bed", "-n", required=True, help="Path to nplb_clustered.bed")
     parser.add_argument("--phastcons_bw", "-p", required=True,
                         help="Path to the phastCons bigWig file")
+    parser.add_argument(
+        "--metric", "-m",
+        choices=["avg_dist","avg_binding","avg_phastcons","hybrid","none"],
+        default="none",
+        help="Metric to order clusters by"
+    )
+    parser.add_argument(
+        "--delete_clusters", "-d",
+        type=str,
+        default="",
+        help="Comma-separated list of cluster IDs to delete (mapped to None)"
+    )
+    parser.add_argument(
+        "--flip_clusters", "-f",
+        type=str,
+        default="",
+        help="Comma-separated list of cluster IDs whose strand should be flipped"
+    )
     return parser.parse_args()
 
 def main():
@@ -22,6 +40,11 @@ def main():
     tss_bed = args.tss_bed
     nplb_bed = args.nplb_bed
     phastcons_bw = args.phastcons_bw
+
+    # Parse new CLI flags
+    metric = args.metric
+    delete_clusters = [s.strip() for s in args.delete_clusters.split(",") if s.strip()]
+    flip_clusters = [s.strip() for s in args.flip_clusters.split(",") if s.strip()]
 
     base_dir = os.path.dirname(nplb_bed)
     work_dir = os.path.join(base_dir, "gene_distances")
@@ -56,7 +79,48 @@ def main():
     # Run bigWigAverageOverBed and compute averages
     phast_tab = run_phastcons_average(phastcons_bw, nplb_bed, phast_dir)
     avg_phast = compute_average_phastcons(phast_tab, nplb_bed)
-    
-    
+
+    # ---- Metric mapping and ordering ----
+    # clusters is a list of cluster IDs (as str)
+    metrics_df = pd.DataFrame({
+        'Cluster': clusters,
+        'avg_dist': [avg_dist.get(c) for c in clusters],
+        'avg_binding': [avg_binding.get(int(c)) for c in clusters],
+        'avg_phastcons': [avg_phast.get(int(c)) for c in clusters]
+    })
+    # Hybrid is average of normalized avg_dist and avg_binding
+    if metric == "hybrid":
+        md = metrics_df['avg_dist']
+        mb = metrics_df['avg_binding']
+        metrics_df['norm_dist'] = 1 - ((md - md.min())/(md.max()-md.min()))
+        metrics_df['norm_binding'] = (mb - mb.min())/(mb.max()-mb.min())
+        metrics_df['hybrid'] = (metrics_df['norm_dist'] + metrics_df['norm_binding'])/2
+    # Determine ordering values
+    if metric in ["avg_dist","avg_binding","avg_phastcons","hybrid"]:
+        metrics_df['order_val'] = metrics_df[metric]
+    else:
+        metrics_df['order_val'] = None
+    # Rank clusters (higher order_val = higher rank; for avg_dist lower is better so invert)
+    if metric == "avg_dist":
+        metrics_df = metrics_df.sort_values('order_val', ascending=True)
+    elif metric in ["avg_binding","avg_phastcons","hybrid"]:
+        metrics_df = metrics_df.sort_values('order_val', ascending=False)
+
+    # Build mapping table
+    map_df = pd.DataFrame({
+        'original_cluster_id': metrics_df['Cluster'].astype(int).astype(str),
+        'mapped_cluster_id': metrics_df['Cluster'].astype(int).astype(str),
+        'flip': False,
+        'rank': list(range(1, len(metrics_df)+1))
+    })
+    # Apply deletions
+    map_df.loc[map_df['original_cluster_id'].isin(delete_clusters), ['mapped_cluster_id','rank']] = (None, None)
+    # Apply flips
+    map_df.loc[map_df['original_cluster_id'].isin(flip_clusters), 'flip'] = True
+
+    # Save mapping to tsv in base_dir
+    map_out = os.path.join(base_dir, "cluster_mapping.tsv")
+    map_df.to_csv(map_out, sep='\t', index=False)
+    print(f"Saved cluster mapping to {map_out}")
 if __name__ == "__main__":
     main()
