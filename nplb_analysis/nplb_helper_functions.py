@@ -246,3 +246,37 @@ def compute_average_phastcons(phast_tab: str, bed_file: str) -> dict:
     avg_phast = df.groupby('cluster_id')[4].mean().to_dict()
 
     return avg_phast
+
+# --- Function to update architectureDetails.txt based on mapping TSV ---
+def update_architecture_details(base_dir: str, cluster_map_tsv: str):
+    """
+    Reads architectureDetails.txt in base_dir, applies the cluster_map_tsv mapping,
+    and writes architectureDetails_updated.txt.
+    """
+    import os, csv, pandas as pd
+
+    if not cluster_map_tsv:
+        return
+
+    # Load mapping from TSV
+    cluster_mapping = {}
+    with open(cluster_map_tsv, newline='') as mf:
+        reader = csv.DictReader(mf, delimiter='\t')
+        for row in reader:
+            orig = str(row['original_cluster_id'])
+            mapped = row['mapped_cluster_id']
+            if mapped in (None, '', 'None'):
+                mapped_val = None
+            else:
+                mapped_val = int(mapped)
+            cluster_mapping[orig] = mapped_val
+
+    arch_path = os.path.join(base_dir, 'architectureDetails.txt')
+    if os.path.exists(arch_path):
+        arch = pd.read_csv(arch_path, sep='\t', header=None)
+        arch.iloc[:,0] = arch.iloc[:,0].astype(str).map(cluster_mapping)
+        arch = arch.dropna(subset=[0])
+        arch.iloc[:,0] = arch.iloc[:,0].astype(int)
+        updated_path = os.path.join(base_dir, 'architectureDetails_updated.txt')
+        arch.to_csv(updated_path, sep='\t', header=False, index=False)
+        print(f"Saved updated architecture details to {updated_path}")

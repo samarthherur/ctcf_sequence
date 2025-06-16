@@ -10,6 +10,9 @@ import csv
 
 from nplb_helper_functions import *
 
+
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Compute avg gene distances per cluster")
     parser.add_argument("--tss_bed", "-t", required=False, default=None,
@@ -140,32 +143,7 @@ def main():
     map_df.to_csv(map_out, sep='\t', index=False)
     print(f"Saved cluster mapping to {map_out}")
 
-    # -- Update architectureDetails by mapping clusters --
-    # Load mapping from TSV if provided
-    cluster_mapping = {}
-    if getattr(args, "cluster_map_tsv", None):
-        with open(args.cluster_map_tsv, newline='') as mf:
-            reader = csv.DictReader(mf, delimiter='\t')
-            for row in reader:
-                orig = str(row['original_cluster_id'])
-                mapped = row['mapped_cluster_id']
-                if mapped in (None, '', 'None'):
-                    mapped_val = None
-                else:
-                    mapped_val = int(mapped)
-                cluster_mapping[orig] = mapped_val
-    else:
-        cluster_mapping = None
-
-    arch_path = os.path.join(base_dir, 'architectureDetails.txt')
-    if os.path.exists(arch_path) and cluster_mapping is not None:
-        arch = pd.read_csv(arch_path, sep='\t', header=None)
-        # Map first column
-        arch.iloc[:,0] = arch.iloc[:,0].astype(str).map(cluster_mapping)
-        arch = arch.dropna(subset=[0])
-        arch.iloc[:,0] = arch.iloc[:,0].astype(int)
-        updated_path = os.path.join(base_dir, 'architectureDetails_updated.txt')
-        arch.to_csv(updated_path, sep='\t', header=False, index=False)
-        print(f"Saved updated architecture details to {updated_path}")
+    # Update architecture details file if mapping TSV provided
+    update_architecture_details(base_dir, args.cluster_map_tsv)
 if __name__ == "__main__":
     main()

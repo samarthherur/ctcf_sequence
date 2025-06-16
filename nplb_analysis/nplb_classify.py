@@ -4,10 +4,13 @@ import os
 import json
 import csv
 import pandas as pd
-from nplb_helper_functions import parse_nplb_classify_args, run_promoter_classify
+from nplb_helper_functions import *
 
 def main():
     args = parse_nplb_classify_args()
+    # Update architectureDetails.txt before classification
+    base_dir = os.path.dirname(args.output_prefix)
+    update_architecture_details(base_dir, args.cluster_map_tsv)
     fasta         = args.fasta
     model         = args.model
     output_prefix = args.output_prefix
@@ -35,6 +38,7 @@ def main():
 
     # -- Parse architectural details if present --
     arch_file = os.path.join(os.path.dirname(output_prefix), 'architectureDetails.txt')
+    
     if os.path.exists(arch_file):
         nplb_clustered = pd.read_csv(arch_file, sep='\t', header=None)
         out_dir = os.path.dirname(arch_file)
