@@ -46,8 +46,9 @@ def parse_nplb_classify_args():
     )
     parser.add_argument(
         "--cluster_map_tsv",
-        required=True,
-        help="TSV file mapping original_cluster_id to mapped_cluster_id, with a 'flip' column"
+        required=False,
+        default=None,
+        help="Optional TSV file mapping original_cluster_id to mapped_cluster_id, with a 'flip' column"
     )
     return parser.parse_args()
 

@@ -13,19 +13,22 @@ def main():
     output_prefix = args.output_prefix
 
     # Load cluster mapping TSV into a dict: original -> (mapped, flip)
-    cluster_map = {}
-    with open(args.cluster_map_tsv, newline='') as mapf:
-        reader = csv.DictReader(mapf, delimiter='\t')
-        for row in reader:
-            orig = str(row['original_cluster_id'])
-            mapped = row['mapped_cluster_id']
-            flip_flag = row['flip'].lower() == 'true'
-            # Normalize mapped values
-            if mapped in (None, '', 'None'):
-                mapped_val = None
-            else:
-                mapped_val = str(mapped)
-            cluster_map[orig] = (mapped_val, flip_flag)
+    if args.cluster_map_tsv:
+        cluster_map = {}
+        with open(args.cluster_map_tsv, newline='') as mapf:
+            reader = csv.DictReader(mapf, delimiter='\t')
+            for row in reader:
+                orig = str(row['original_cluster_id'])
+                mapped = row['mapped_cluster_id']
+                flip_flag = row['flip'].lower() == 'true'
+                if mapped in (None, '', 'None'):
+                    mapped_val = None
+                else:
+                    mapped_val = str(mapped)
+                cluster_map[orig] = (mapped_val, flip_flag)
+    else:
+        # default mapping: identity, no flip
+        cluster_map = None
 
     # 1) Run promoterClassify
     run_promoter_classify(fasta, model, output_prefix)
@@ -57,12 +60,18 @@ def main():
 
             # Remap or skip based on cluster_map
             raw_cluster = str(nplb_clustered.iloc[i, 0])
-            if raw_cluster not in cluster_map:
-                continue
-            mapped_val, flip_flag = cluster_map[raw_cluster]
-            if mapped_val is None:
-                continue
-            cluster = mapped_val
+            if cluster_map is not None:
+                # use provided mapping
+                if raw_cluster not in cluster_map:
+                    continue
+                mapped_val, flip_flag = cluster_map[raw_cluster]
+                if mapped_val is None:
+                    continue
+                cluster = mapped_val
+            else:
+                # identity mapping, no flip
+                cluster = raw_cluster
+                flip_flag = False
 
             # Apply flip if requested
             if flip_flag:
