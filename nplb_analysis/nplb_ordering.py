@@ -10,9 +10,6 @@ import csv
 
 from nplb_helper_functions import *
 
-
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description="Compute avg gene distances per cluster")
     parser.add_argument("--tss_bed", "-t", required=False, default=None,
@@ -145,5 +142,6 @@ def main():
 
     # Update architecture details file if mapping TSV provided
     update_architecture_details(base_dir, args.cluster_map_tsv)
+    
 if __name__ == "__main__":
     main()
