@@ -57,22 +57,22 @@ def parse_nplb_classify_args():
     )
     return parser.parse_args()
 
-def run_promoter_learn(fasta_path: str, output_prefix: str):
-    cmd = f"promoterLearn -f {fasta_path} -o {output_prefix}"
-    print(f"Executing: {cmd}")
-    ret = os.system(cmd)
-    if ret != 0:
-        raise RuntimeError(f"promoterLearn failed with exit code {ret}")
+# def run_promoter_learn(fasta_path: str, output_prefix: str):
+#     cmd = f"promoterLearn -f {fasta_path} -o {output_prefix}"
+#     print(f"Executing: {cmd}")
+#     ret = os.system(cmd)
+#     if ret != 0:
+#         raise RuntimeError(f"promoterLearn failed with exit code {ret}")
 
-def run_promoter_classify(fasta_path: str, model_path: str, output_prefix: str):
-    """
-    Run promoterClassify on the given FASTA using a pre-trained model.
-    """
-    cmd = f"promoterClassify -f {fasta_path} -m {model_path} -o {output_prefix}"
-    print(f"Executing: {cmd}")
-    ret = os.system(cmd)
-    if ret != 0:
-        raise RuntimeError(f"promoterClassify failed with exit code {ret}")
+# def run_promoter_classify(fasta_path: str, model_path: str, output_prefix: str):
+#     """
+#     Run promoterClassify on the given FASTA using a pre-trained model.
+#     """
+#     cmd = f"promoterClassify -f {fasta_path} -m {model_path} -o {output_prefix}"
+#     print(f"Executing: {cmd}")
+#     ret = os.system(cmd)
+#     if ret != 0:
+#         raise RuntimeError(f"promoterClassify failed with exit code {ret}")
     
     
 ###ordering functions

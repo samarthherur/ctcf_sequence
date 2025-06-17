@@ -1,14 +1,16 @@
 import os
 import pandas as pd
-from nplb_helper_functions import parse_nplb_args, run_promoter_learn
+from nplb_helper_functions import *
 
 def main():
-    args = parse_nplb_args()
+    args = parse_nplb_train_args()
     fasta = args.fasta
     output_prefix = args.output_prefix
 
-    # 1) Run promoterLearn
-    run_promoter_learn(fasta, output_prefix)
+    # # 1) Run promoterLearn
+    # run_promoter_learn(fasta, output_prefix)
+    
+    os.system("module unload python-2.7")
 
     # -- Parse architectural details if file exists in output directory --
     arch_file = os.path.join(os.path.dirname(output_prefix),
