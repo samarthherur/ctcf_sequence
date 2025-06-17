@@ -122,7 +122,7 @@ Submit the job to SLURM:
 ```bash
 sbatch train.sh
 ```
-## 1. Conceptual & Usage Overview of `nplb_train.py`
+## 3. Conceptual & Usage Overview of `nplb_train.py`
 
 This Python script parses the NPLB `promoterLearn` training output (`architectureDetails.txt`) and converts it into a BED file of clustered windows.
 
