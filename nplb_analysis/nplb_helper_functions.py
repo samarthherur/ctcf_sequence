@@ -14,15 +14,15 @@ def parse_nplb_train_args():
     parser = argparse.ArgumentParser(
         description="Run promoterLearn training on neighbourhood FASTA"
     )
-    parser.add_argument(
-        "--fasta", "-f",
-        required=True,
-        help="Input FASTA file (neighbourhood sequences) for training"
-    )
+    # parser.add_argument(
+    #     "--fasta", "-f",
+    #     required=True,
+    #     help="Input FASTA file (neighbourhood sequences) for training"
+    # )
     parser.add_argument(
         "--output_prefix", "-o",
         required=True,
-        help="Prefix (directory+basename) for all training outputs"
+        help="Output directory of NPLB training results, which includes architectureDetails.txt"
     )
     return parser.parse_args()
 
