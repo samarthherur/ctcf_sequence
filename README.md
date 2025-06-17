@@ -89,6 +89,7 @@ python fimo_neighbourhood_analysis.py \
   --output_dir      ~/results/fimo_analysis/ \
   --neighbourhood_size 100 \
   --ignore_repeats
+```
 
 ## 2. Conceptual & Usage Overview of `train.sh`
 
@@ -120,3 +121,4 @@ Submit the job to SLURM:
 
 ```bash
 sbatch train.sh
+```
