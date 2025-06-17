@@ -122,3 +122,39 @@ Submit the job to SLURM:
 ```bash
 sbatch train.sh
 ```
+## 1. Conceptual & Usage Overview of `nplb_train.py`
+
+This Python script parses the NPLB `promoterLearn` training output (`architectureDetails.txt`) and converts it into a BED file of clustered windows.
+
+### Inputs
+
+| Flag                           | Parameter           | Type   | Required | Description                                                                                               |
+|--------------------------------|---------------------|--------|----------|-----------------------------------------------------------------------------------------------------------|
+| `--output_prefix`, `-o`        | `<output_prefix>`   | string | yes      | Output prefix (directory + basename) where `architectureDetails.txt` was written by `promoterLearn`.     |
+
+### Functions Utilized
+
+- `parse_nplb_train_args()`: parses the `--output_prefix` argument.  
+  *(defined in `nplb_helper_functions.py`)*
+
+### Processing Steps
+
+1. **Locate** `architectureDetails.txt` in the directory of `output_prefix`.  
+2. **Assert** that the file exists, otherwise exit with an error message.  
+3. **Load** the TSV into a pandas DataFrame (`nplb_clustered`).  
+4. **Extract** from each entry string:  
+   - Chromosome (`chr`)  
+   - Start coordinate (`start`)  
+   - End coordinate (`end`)  
+   - Strand (`+` or `-`)  
+   - Cluster ID (`cluster`)  
+5. **Assemble** a new DataFrame with columns `['chr','start','end','cluster','strand']`.  
+6. **Write** this DataFrame as a BED file named `nplb_clustered.bed` alongside the input file.  
+7. **Print** the path of the saved BED.
+
+### Usage
+
+```bash
+python nplb_train.py \
+  --output_prefix /home/samarth/ctcf_sequence_data/output/NPLB/HFF/output_prefix
+```
