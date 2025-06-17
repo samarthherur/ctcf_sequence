@@ -1,106 +1,84 @@
-## Conceptual Overview of `~/ctcf_sequence/fimo_analysis/fimo_neighbourhood_analysis.py`
+## 1. Conceptual & Usage Overview of `~/ctcf_sequence/fimo_analysis/fimo_neighbourhood_analysis.py`
 
 This script implements an end-to-end pipeline to take raw FIMO motif calls and integrate them with ChIP-seq and boundary data, producing statistical summaries and visualizations at each step.
 
-### 1. Inputs
-- **FIMO output** (TSV of motif hits)
-- **Genome FASTA** (reference sequence)
-- **ChIP-seq peaks** (BED file)
-- **Boundary regions** (BED file)
-- **Neighborhood size** (window around each motif, e.g. 50 bp)
-- **Output directory** (where all results are saved)
+1. **Inputs**  
+   - **FIMO output** (TSV of motif hits)  
+   - **Genome FASTA** (reference sequence)  
+   - **ChIP-seq peaks** (BED file)  
+   - **Boundary regions** (BED file)  
+   - **Neighborhood size** (window around each motif, e.g. 50 bp)  
+   - **Output directory** (where all results are saved)
+
+2. **Neighborhood Extraction**  
+   1. **Extend** each FIMO hit by ±_neighborhood_size_ around its genomic coordinates.  
+   2. **Merge** overlapping windows so each motif has a unique “neighborhood” window.  
+   3. **Split** by strand and write plus/minus BED files.  
+   4. **Fetch** the corresponding sequences with `bedtools getfasta`.  
+   5. **Save** a combined FASTA of all neighborhoods.
+
+3. **Visualization & Initial Statistics**  
+   - **Heatmap & Logo** of the raw neighborhood FASTA.  
+   - **Median score** of all neighborhood windows.
+
+4. **ChIP-seq Filtering**  
+   - **Intersect** neighborhood windows with ChIP-seq peaks.  
+   - **Save** filtered BED & FASTA.  
+   - **Redo** heatmap & logo on filtered sequences.
+
+5. **Boundary Intersection**  
+   - **Split** filtered windows into:  
+     - Those that **intersect** boundary regions  
+     - Those that **do not** intersect  
+   - **Heatmap & logo** for both subsets.
+
+6. **Score Distributions & Tests**  
+   - **Compute** median scores for intersecting vs. non-intersecting windows.  
+   - **Plot** and save:  
+     - Density overlay (`score_distribution.png`)  
+     - Overlaid histograms (`score_histogram.png`)  
+   - **Kolmogorov–Smirnov test** between the two groups.
+
+7. **Motif Classification**  
+   - **Filter** the original FIMO TSV by ChIP peaks.  
+   - **Assign** each motif to boundary windows.  
+   - **Classify** motifs into:  
+     1. Class 1 (outside any boundary)  
+     2. Class 2 (inside a boundary, no special neighbor relationship)  
+     3. Class 3 (strand-paired motifs across adjacent boundaries)  
+   - **Write** `classified_motifs.tsv`.
+
+8. **Classified Motif Summaries**  
+   - **Total count** and **per-class counts**.  
+   - **Median score** per class.  
+   - **KS tests** between every pair of classes.  
+   - **Density plot** of class-specific score distributions.
+
+9. **Repeat-Filtering & Final Visuals**  
+   - **Remove** any sequences with `N`/`n` or lowercase letters.  
+   - **Report** number of repeat-free sequences and per-base counts.  
+   - **Save** a `_wr.fasta` of cleaned sequences.  
+   - **Heatmap & logo** of repeat-free FASTA.
+
+10. **Neighborhood Matrix**  
+    - **Count** overlaps with ChIP and boundary for each window (`-c`).  
+    - **Save** `neighbourhood_matrix.tsv` for downstream analyses.
 
 ---
 
-### 2. Neighborhood Extraction
-1. **Extend** each FIMO hit by ±_neighborhood_size_ around its genomic coordinates.
-2. **Merge** overlapping windows so each motif has a unique “neighborhood” window.
-3. **Split** by strand and write plus/minus BED files.
-4. **Fetch** the corresponding sequences with `bedtools getfasta`.
-5. **Save** a combined FASTA of all neighborhoods.
+**Usage Overview: Input Arguments**
 
----
+| Argument               | Type       | Required  | Description                                                                                                                               |
+|------------------------|------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| `--fimo_filepath`      | string     | yes       | Path to the **raw FIMO TSV** file containing motif occurrences (chromosome, start, end, score, p-value, etc.).                            |
+| `--genome_fasta`       | string     | yes       | Path to the **reference genome FASTA**. Used by `bedtools getfasta` to extract the ±neighborhood window around each motif hit.           |
+| `--chip_filepath`      | string     | yes       | Path to the **ChIP-seq peaks BED** file. Windows that overlap these regions are retained during the ChIP-filtering step.                   |
+| `--boundary`           | string     | yes       | Path to the **boundary regions BED** file. Filtered windows are split into “intersect” vs. “non-intersect” groups based on these coords.    |
+| `--output_dir`         | string     | yes       | Directory where all outputs will be written (created if it doesn’t exist). Contains FASTA/BED files, PNG figures, matrices, and reports.  |
+| `--neighbourhood_size` | integer    | no (50)   | Number of base-pairs to extend **upstream and downstream** of each motif hit when constructing its “neighborhood” window. Defaults to 50 bp. |
+| `--ignore_repeats`     | flag       | no        | If provided, **skip** the step that filters out sequences containing `N`/`n` or lowercase letters from the neighborhood FASTA.            |
 
-### 3. Visualization & Initial Statistics
-- **Heatmap & Logo** of the raw neighborhood FASTA.
-- **Median score** of all neighborhood windows.
-
----
-
-### 4. ChIP-seq Filtering
-- **Intersect** neighborhood windows with ChIP-seq peaks.
-- **Save** filtered BED & FASTA.
-- **Redo** heatmap & logo on filtered sequences.
-
----
-
-### 5. Boundary Intersection
-- **Split** filtered windows into:
-  - Those that **intersect** boundary regions  
-  - Those that **do not** intersect
-- **Heatmap & logo** for both subsets.
-
----
-
-### 6. Score Distributions & Tests
-- **Compute** median scores for intersecting vs non-intersecting windows.
-- **Plot** and save:
-  - Density overlay (`score_distribution.png`)
-  - Overlaid histograms (`score_histogram.png`)
-- **Kolmogorov–Smirnov test** between the two groups.
-
----
-
-### 7. Motif Classification
-- **Filter** the original FIMO TSV by ChIP peaks.
-- **Assign** each motif to boundary windows.
-- **Classify** motifs into:
-  1. Class 1 (outside any boundary)  
-  2. Class 2 (inside a boundary, no special neighbor relationship)  
-  3. Class 3 (strand-paired motifs across adjacent boundaries)
-- **Write** `classified_motifs.tsv`.
-
----
-
-### 8. Classified Motif Summaries
-- **Total count** and **per-class counts**.
-- **Median score** per class.
-- **KS tests** between every pair of classes.
-- **Density plot** of class-specific score distributions.
-
----
-
-### 9. Repeat-Filtering & Final Visuals
-- **Remove** any sequences with `N`/`n` or lowercase letters.
-- **Report** number of repeat-free sequences and per-base counts.
-- **Save** a `_wr.fasta` of cleaned sequences.
-- **Heatmap & logo** of repeat-free FASTA.
-
----
-
-### 10. Neighborhood Matrix
-- **Count** overlaps with ChIP and boundary for each window (`-c`).
-- **Save** `neighbourhood_matrix.tsv` for downstream analyses.
-
----
-
-_All results (metrics, statistics, and plots) are logged to `summary.txt` and accompanying PNG files in the specified output folder._  
-
-## Usage Overview: Input Arguments
-
-Below is a description of each command‐line argument you supply to `fimo_neighbourhood_analysis.py`:
-
-| Argument               | Type       | Required  | Description                                                                                                                                         |
-|------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--fimo_filepath`      | string     | yes       | Path to the **raw FIMO TSV** file containing motif occurrences (chromosome, start, end, score, p-value, etc.).                                      |
-| `--genome_fasta`       | string     | yes       | Path to the **reference genome FASTA**. Used by `bedtools getfasta` to extract the ±neighborhood window around each motif hit.                     |
-| `--chip_filepath`      | string     | yes       | Path to the **ChIP-seq peaks BED** file. Windows that overlap these regions are retained during the ChIP-filtering step.                             |
-| `--boundary`           | string     | yes       | Path to the **boundary regions BED** file. Filtered windows are split into “intersect” vs. “non-intersect” groups based on these coordinates.        |
-| `--output_dir`         | string     | yes       | Directory where all outputs will be written (created if it doesn’t exist). Contains FASTA/BED files, PNG figures, matrices, and `summary.txt`.     |
-| `--neighbourhood_size` | integer    | no (50)   | Number of base-pairs to extend **upstream and downstream** of each motif hit when constructing its “neighborhood” window. Defaults to **50 bp**.    |
-| `--ignore_repeats`     | flag       | no        | If provided, **skip** the step that filters out sequences containing `N`/`n` or lowercase letters from the neighborhood FASTA.                       |
-
-### Example Invocation
+**Example Invocation**
 
 ```bash
 python fimo_neighbourhood_analysis.py \
