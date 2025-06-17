@@ -99,8 +99,11 @@ def main():
     nplb_bed = args.nplb_bed
     phastcons_bw = args.phastcons_bw
 
-    # Parse new CLI flags
     metric = args.metric
+    # Enforce metric none when using an external cluster_map_tsv
+    if args.cluster_map_tsv and metric != "none":
+        import sys
+        sys.exit("ERROR: --cluster_map_tsv requires --metric none")
     delete_clusters = [s.strip() for s in args.delete_clusters.split(",") if s.strip()]
     flip_clusters = [s.strip() for s in args.flip_clusters.split(",") if s.strip()]
 
@@ -189,12 +192,10 @@ def main():
     map_df.to_csv(map_out, sep='\t', index=False)
     print(f"Saved cluster mapping to {map_out}")
 
-    # Update architecture details file if mapping TSV provided
-    update_architecture_details(base_dir, args.cluster_map_tsv)
-    
-    # Update nplb_clustered.bed with new mappings
-    if args.cluster_map_tsv:
-        update_nplb_bed(base_dir, args.cluster_map_tsv)
+    # Choose mapping TSV: use provided one if available, else use computed map_out
+    cluster_map_path = args.cluster_map_tsv if args.cluster_map_tsv else map_out
+    update_architecture_details(base_dir, cluster_map_path)
+    update_nplb_bed(base_dir, cluster_map_path)
 
 if __name__ == "__main__":
     main()
