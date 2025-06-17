@@ -1,4 +1,4 @@
-## Conceptual Overview of `fimo_neighbourhood_analysis.py`
+## Conceptual Overview of `~/ctcf_sequence/fimo_analysis/fimo_neighbourhood_analysis.py`
 
 This script implements an end-to-end pipeline to take raw FIMO motif calls and integrate them with ChIP-seq and boundary data, producing statistical summaries and visualizations at each step.
 
