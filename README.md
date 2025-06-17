@@ -89,3 +89,34 @@ python fimo_neighbourhood_analysis.py \
   --output_dir      ~/results/fimo_analysis/ \
   --neighbourhood_size 100 \
   --ignore_repeats
+
+## 2. Conceptual & Usage Overview of `train.sh`
+
+This Bash script is a SLURM batch submission that runs the NPLB `promoterLearn` training on a pre-filtered FIMO neighbourhood FASTA, configuring compute resources, environment modules, and logging.
+
+### SLURM Directives  
+- `#SBATCH --job-name=nplb_train`  
+- `#SBATCH --output=nplb_train.out`  
+- `#SBATCH --error=nplb_train.err`  
+- `#SBATCH --time=5-10:00:00`  
+- `#SBATCH --partition=gpu`  
+- `#SBATCH --ntasks=40`  
+- `#SBATCH --nodelist=cn1`  
+
+---
+
+### Inputs
+
+| Flag | Parameter | Type   | Required | Description                                                      |
+|------|-----------|--------|----------|------------------------------------------------------------------|
+| `-f`  | `<fasta>` | string | yes      | Path to the filtered, repeat-free neighbourhood FASTA file.      |
+| `-o`  | `<out_dir>` | string | yes      | Output directory for NPLB results (models, clustering outputs).  |
+
+---
+
+### Usage
+
+Submit the job to SLURM:
+
+```bash
+sbatch train.sh
