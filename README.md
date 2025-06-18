@@ -304,24 +304,20 @@ python nplb_classify.py \
 ```
 ```mermaid
 flowchart TD
-  subgraph FIMO & Neighborhood Extraction
-    A[Raw FIMO TSV<br/>(motif calls)] --> B[fimo_neighborhood_analysis.py]
-    B -->|±50 bp windows, merge overlaps<br/>+ ChIP & boundary filtering| C[Filtered Neighborhood WR FASTA]
+  subgraph FIMO_Neighborhood
+    A["Raw FIMO TSV\n(motif calls)"] --> B["fimo_neighborhood_analysis.py\n(Neighborhood Extraction)"]
+    B --> C["Filtered Neighborhood WR FASTA"]
   end
 
-  subgraph NPLB Model Training & Application
-    C --> D[train.sh<br/>(promoterLearn)]
-    D -->|architectureDetails.txt + bestModel.p| E[nplb_train.py]
-    E -->|nplb_clustered.bed| F[nplb_ordering.py]
-    F -->|cluster_mapping.tsv<br/>architectureDetails_updated.txt<br/>nplb_clustered_updated.bed| G[nplb_classify.py]
+  subgraph NPLB_Model_Pipeline
+    C --> D["train.sh\n(promoterLearn)"]
+    D --> E["nplb_train.py\n(Generate nplb_clustered.bed)"]
+    E --> F["nplb_ordering.py\n(Compute metrics & cluster mapping)"]
+    F --> G["nplb_classify.py\n(Generate classified BED)"]
   end
 
-  subgraph Sequence Classification
-    D -->|bestModel.p| H[promoterClassify<br/>(SLURM script)]
-    H -->|classification scores per window| I[Classified Sequences<br/>(e.g. boundary vs non)] 
+  subgraph Sequence_Classification
+    C --> H["promoterClassify\n(Score sequences with trained model)"]
+    H --> I["Classified Sequences\n(scores per window)"]
   end
-
-  %% Styling
-  classDef step fill:#f9f,stroke:#333,stroke-width:1px;
-  class A,B,C,D,E,F,G,H,I step;
 ```
