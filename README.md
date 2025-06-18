@@ -305,19 +305,27 @@ python nplb_classify.py \
 ```mermaid
 flowchart TD
   subgraph FIMO_Neighborhood
-    A["Raw FIMO TSV\n(motif calls)"] --> B["fimo_neighborhood_analysis.py\n(Neighborhood Extraction)"]
-    B --> C["Filtered Neighborhood WR FASTA"]
+    A["Raw FIMO TSV
+(motif calls)"] --> B["fimo_neighborhood_analysis.py
+Neighborhood Extraction"]
+    B --> C["Filtered Neighborhood
+WR FASTA"]
   end
 
   subgraph NPLB_Model_Pipeline
-    C --> D["train.sh\n(promoterLearn)"]
-    D --> E["nplb_train.py\n(Generate nplb_clustered.bed)"]
-    E --> F["nplb_ordering.py\n(Compute metrics & cluster mapping)"]
-    F --> G["nplb_classify.py\n(Generate classified BED)"]
+    C --> D["train.sh
+promoterLearn"]
+    D --> E["nplb_train.py
+Generate nplb_clustered.bed"]
+    E --> F["nplb_ordering.py
+Compute metrics & cluster mapping"]
   end
 
   subgraph Sequence_Classification
-    C --> H["promoterClassify\n(Score sequences with trained model)"]
-    H --> I["Classified Sequences\n(scores per window)"]
+    C --> H["promoterClassify
+Score sequences with trained model"]
+    H --> G["nplb_classify.py
+Final classification"]
+    F --> G
   end
 ```
