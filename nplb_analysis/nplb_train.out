@@ -452,3 +452,25 @@ Best model till now has 19 architectures
 
 PROGRESS: 50% complete
 
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Model learnt successfully.
+Saving details...
+Goodbye!
