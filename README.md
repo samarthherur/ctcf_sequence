@@ -158,3 +158,77 @@ This Python script parses the NPLB `promoterLearn` training output (`architectur
 python nplb_train.py \
   --output_prefix /home/samarth/ctcf_sequence_data/output/NPLB/HFF/output_prefix
 ```
+
+## 4. Conceptual & Usage Overview of `nplb_ordering.py`
+
+This Python script performs a multi‐step analysis on NPLB‐clustered windows, optionally computing  
+- **Gene‐TSS distances** and hypergeometric enrichment  
+- **Proximal binding counts**  
+- **phastCons averages**  
+It then orders clusters by a chosen metric, applies user‐specified deletions/flips, builds a continuous cluster mapping, and updates both `architectureDetails.txt` and the original BED.
+
+---
+
+### Inputs
+
+| Flag                | Parameter         | Type    | Required | Description                                                                                       |
+|---------------------|-------------------|---------|----------|---------------------------------------------------------------------------------------------------|
+| `-t`, `--tss_bed`   | `<tss_bed>`       | string  | no       | Path to TSS BED file (for gene‐distance & hypergeom).                                             |
+| `-n`, `--nplb_bed`  | `<nplb_bed>`      | string  | no       | Path to `nplb_clustered.bed` (for binding counts & mapping).                                      |
+| `-p`, `--phastcons_bw` | `<bw>`         | string  | no       | Path to phastCons BigWig (for conservation averages).                                             |
+| `-m`, `--metric`    | `{avg_dist,avg_binding,avg_phastcons,hybrid,none}` | string  | no (default=`none`) | Which metric to use for ordering clusters. “hybrid” combines normalized distance & binding.  |
+| `-d`, `--delete_clusters` | `<list>`   | string  | no       | Comma‐separated original cluster IDs to drop (mapped to `None`).                                   |
+| `-f`, `--flip_clusters`   | `<list>`   | string  | no       | Comma‐separated original cluster IDs whose strand should be flipped in the updated BED.           |
+| `--cluster_map_tsv` | `<map_tsv>`       | string  | no       | If provided, use this mapping instead of computing a new one (requires `--metric none`).           |
+
+---
+
+### Pipeline Steps
+
+1. **Gene‐TSS Distance & Hypergeom**  
+   Runs if both `--tss_bed` and `--nplb_bed` are given:  
+   - Sort TSS (`preprocess_tss`)  
+   - Compute closest gene distances (`compute_closest`)  
+   - Filter columns, run hypergeom tests, plot p-value heatmaps  
+   - Compute `avg_dist` per cluster  
+
+2. **Proximal Binding Count**  
+   Runs if `--nplb_bed` is given:  
+   - Extend windows by 20 kb (`extend_cluster_windows`)  
+   - Count overlaps (`count_proximal_binding`)  
+   - Compute `avg_binding` per cluster  
+
+3. **phastCons Average**  
+   Runs if `--phastcons_bw` is given:  
+   - Compute mean phastCons via `pyBigWig` helper  
+   - Compute `avg_phast` per cluster  
+
+4. **Metric Mapping & Ordering**  
+   - Build a DataFrame of clusters and their metrics  
+   - Normalize and/or combine metrics if `hybrid`  
+   - Sort clusters according to the chosen metric  
+
+5. **Build & Save Cluster Mapping**  
+   - Drop deleted clusters  
+   - Apply strand flips  
+   - Assign continuous `mapped_cluster_id` from 1…N  
+   - Save `cluster_mapping.tsv`  
+
+6. **Update Outputs**  
+   - Use the provided or newly computed map to:  
+     - Rewrite `architectureDetails_updated.txt` with integer IDs  
+     - Rewrite `nplb_clustered_updated.bed` with mapped IDs and flipped strands  
+
+---
+
+### Usage Example
+
+```bash
+python nplb_ordering.py \
+  --tss_bed /path/to/tss.bed \
+  --nplb_bed /path/to/nplb_clustered.bed \
+  --phastcons_bw /path/to/phastcons.bw \
+  -m hybrid \
+  -d 1,2 \
+  -f 3,4
+```
