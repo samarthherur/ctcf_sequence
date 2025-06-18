@@ -130,16 +130,16 @@ This Python script parses the NPLB `promoterLearn` training output (`architectur
 
 | Flag                           | Parameter           | Type   | Required | Description                                                                                               |
 |--------------------------------|---------------------|--------|----------|-----------------------------------------------------------------------------------------------------------|
-| `--output_prefix`, `-o`        | `<output_prefix>`   | string | yes      | Output prefix (directory + basename) where `architectureDetails.txt` was written by `promoterLearn`.     |
+| `--nplb_train_dir`, `-o`        | `<nplb_train_dir>`   | string | yes      | Directory of NPLB training results containing `architectureDetails.txt`.     |
 
 ### Functions Utilized
 
-- `parse_nplb_train_args()`: parses the `--output_prefix` argument.  
+- `parse_nplb_train_args()`: parses the `--nplb_train_dir` argument.  
   *(defined in `nplb_helper_functions.py`)*
 
 ### Processing Steps
 
-1. **Locate** `architectureDetails.txt` in the directory of `output_prefix`.  
+1. **Locate** `architectureDetails.txt` in the directory of `nplb_train_dir`.  
 2. **Assert** that the file exists, otherwise exit with an error message.  
 3. **Load** the TSV into a pandas DataFrame (`nplb_clustered`).  
 4. **Extract** from each entry string:  
@@ -156,7 +156,7 @@ This Python script parses the NPLB `promoterLearn` training output (`architectur
 
 ```bash
 python nplb_train.py \
-  --output_prefix /home/samarth/ctcf_sequence_data/output/NPLB/HFF/output_prefix
+  --nplb_train_dir /home/samarth/ctcf_sequence_data/output/NPLB/HFF
 ```
 
 ## 4. Conceptual & Usage Overview of `nplb_ordering.py`
@@ -176,10 +176,10 @@ It then orders clusters by a chosen metric, applies user‐specified deletions/f
 | `-t`, `--tss_bed`   | `<tss_bed>`       | string  | no       | Path to TSS BED file (for gene‐distance & hypergeom).                                             |
 | `-n`, `--nplb_bed`  | `<nplb_bed>`      | string  | no       | Path to `nplb_clustered.bed` (for binding counts & mapping).                                      |
 | `-p`, `--phastcons_bw` | `<bw>`         | string  | no       | Path to phastCons BigWig (for conservation averages).                                             |
-| `-m`, `--metric`    | `{avg_dist,avg_binding,avg_phastcons,hybrid,none}` | string  | no (default=`none`) | Which metric to use for ordering clusters. “hybrid” combines normalized distance & binding.  |
+| `-m`, `--metric`    | `{avg_dist,avg_binding,avg_phastcons,hybrid,none}` | string  | no (default=none) | Which metric to use for ordering clusters. “hybrid” combines normalized distance & binding.  |
 | `-d`, `--delete_clusters` | `<list>`   | string  | no       | Comma‐separated original cluster IDs to drop (mapped to `None`).                                   |
 | `-f`, `--flip_clusters`   | `<list>`   | string  | no       | Comma‐separated original cluster IDs whose strand should be flipped in the updated BED.           |
-| `--cluster_map_tsv` | `<map_tsv>`       | string  | no       | If provided, use this mapping instead of computing a new one (requires `--metric none`).           |
+| `--cluster_map_tsv` | `<map_tsv>`       | string  | no       | Optional TSV mapping original→mapped IDs with `flip`; requires `-m none` if provided.              |
 
 ---
 
@@ -230,8 +230,13 @@ python nplb_ordering.py \
   --phastcons_bw /path/to/phastcons.bw \
   -m hybrid \
   -d 1,2 \
-  -f 3,4
+  -f 3,4 \
+  --cluster_map_tsv /path/to/cluster_mapping.tsv
 ```
+
+> *Notes:*  
+> - Omit any of `-t`, `-n`, `-p` to skip that analysis step.  
+> - If using `--cluster_map_tsv`, set `-m none`.
 
 ## 5. Conceptual & Usage Overview of `nplb_classify.py`
 
