@@ -302,7 +302,7 @@ python nplb_classify.py \
   --nplb_classify_dir /path/to/NPLB/output \
   --cluster_map_tsv /path/to/cluster_mapping.tsv
 ```
-
+```mermaid
 flowchart TD
   subgraph FIMO & Neighborhood Extraction
     A[Raw FIMO TSV<br/>(motif calls)] --> B[fimo_neighborhood_analysis.py]
@@ -324,3 +324,4 @@ flowchart TD
   %% Styling
   classDef step fill:#f9f,stroke:#333,stroke-width:1px;
   class A,B,C,D,E,F,G,H,I step;
+```
