@@ -238,7 +238,29 @@ python nplb_ordering.py \
 > - Omit any of `-t`, `-n`, `-p` to skip that analysis step.  
 > - If using `--cluster_map_tsv`, set `-m none`.
 
-## 5. Conceptual & Usage Overview of `nplb_classify.py`
+## 5. Conceptual & Usage Overview of `promoterClassify`
+
+Below is an example SLURM batch script to run the `promoterClassify` step:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=promoter_classify
+#SBATCH --output=promoter_classify.out
+#SBATCH --error=promoter_classify.err
+#SBATCH --time=2-00:00:00
+#SBATCH --partition=gpu
+#SBATCH --ntasks=20
+#SBATCH --nodelist=cn2
+
+module load python/3.8
+source activate nplb_env
+
+python promoterClassify.py \
+  --input_fasta /path/to/filtered_neighbourhood_wr.fasta \
+  --model_dir /path/to/nplb_train_output \
+  --output_dir /path/to/promoter_classify_results
+```
+## 6. Conceptual & Usage Overview of `nplb_classify.py`
 
 This script builds an NPLB clustered‐window BED file from `architectureDetails.txt`, then applies a user‐supplied cluster‐mapping TSV to:
 
@@ -280,3 +302,25 @@ python nplb_classify.py \
   --nplb_classify_dir /path/to/NPLB/output \
   --cluster_map_tsv /path/to/cluster_mapping.tsv
 ```
+
+flowchart TD
+  subgraph FIMO & Neighborhood Extraction
+    A[Raw FIMO TSV<br/>(motif calls)] --> B[fimo_neighborhood_analysis.py]
+    B -->|±50 bp windows, merge overlaps<br/>+ ChIP & boundary filtering| C[Filtered Neighborhood WR FASTA]
+  end
+
+  subgraph NPLB Model Training & Application
+    C --> D[train.sh<br/>(promoterLearn)]
+    D -->|architectureDetails.txt + bestModel.p| E[nplb_train.py]
+    E -->|nplb_clustered.bed| F[nplb_ordering.py]
+    F -->|cluster_mapping.tsv<br/>architectureDetails_updated.txt<br/>nplb_clustered_updated.bed| G[nplb_classify.py]
+  end
+
+  subgraph Sequence Classification
+    D -->|bestModel.p| H[promoterClassify<br/>(SLURM script)]
+    H -->|classification scores per window| I[Classified Sequences<br/>(e.g. boundary vs non)] 
+  end
+
+  %% Styling
+  classDef step fill:#f9f,stroke:#333,stroke-width:1px;
+  class A,B,C,D,E,F,G,H,I step;
