@@ -5,6 +5,7 @@ import numpy as np
 from scipy.stats import hypergeom
 import matplotlib.pyplot as plt
 import json
+import pyBigWig
 
 
 def parse_nplb_train_args():
@@ -205,19 +206,33 @@ def compute_average_proximal(count_bed: str) -> dict:
 ##phastcons
 def run_phastcons_average(phastcons_bw: str, bed_file: str, output_dir: str) -> str:
     """
-    Run bigWigAverageOverBed to compute per-region phastCons scores.
-    Returns the path to the output table.
+    Compute per-region phastCons scores using pyBigWig.
+    Returns the path to the output TSV table with columns: cluster_id, mean_phastcons.
     """
     import os
-    import subprocess
+    import pandas as pd
 
     os.makedirs(output_dir, exist_ok=True)
     out_tab = os.path.join(output_dir, 'phastcons_over_clusters.tab')
-    cmd = f"bigWigAverageOverBed {phastcons_bw} {bed_file} {out_tab}"
-    print(f"Executing: {cmd}")
-    ret = subprocess.call(cmd, shell=True)
-    if ret != 0:
-        raise RuntimeError(f"bigWigAverageOverBed failed with exit code {ret}")
+
+    # Load regions
+    df = pd.read_csv(
+        bed_file,
+        sep='\t',
+        header=None,
+        names=['chrom','start','end','cluster_id','strand']
+    )
+
+    # Open bigWig and compute mean score per region
+    bw = pyBigWig.open(phastcons_bw)
+    df['mean_phastcons'] = df.apply(
+        lambda r: bw.stats(r['chrom'], int(r['start']), int(r['end']), type="mean")[0] or 0.0,
+        axis=1
+    )
+    bw.close()
+
+    # Save cluster_id and mean score
+    df[['cluster_id','mean_phastcons']].to_csv(out_tab, sep='\t', index=False, header=False)
     return out_tab
 
 
@@ -273,10 +288,20 @@ def update_architecture_details(base_dir: str, cluster_map_tsv: str):
 
     arch_path = os.path.join(base_dir, 'architectureDetails.txt')
     if os.path.exists(arch_path):
+        # Load raw architecture details
         arch = pd.read_csv(arch_path, sep='\t', header=None)
-        arch.iloc[:,0] = arch.iloc[:,0].astype(str).map(cluster_mapping)
-        arch = arch.dropna(subset=[0])
-        arch.iloc[:,0] = arch.iloc[:,0].astype(int)
+
+        # Map original IDs to new cluster IDs and drop unmapped rows
+        mapped = arch.iloc[:, 0].astype(str).map(cluster_mapping)
+        mapped = mapped.dropna().astype(int)
+
+        # Filter arch to only rows with a valid mapped ID
+        arch = arch.loc[mapped.index].copy()
+
+        # Replace first column with integer cluster IDs
+        arch.iloc[:, 0] = mapped.values
+
+        # Write updated architecture details
         updated_path = os.path.join(base_dir, 'architectureDetails_updated.txt')
         arch.to_csv(updated_path, sep='\t', header=False, index=False)
         print(f"Saved updated architecture details to {updated_path}")
