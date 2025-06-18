@@ -378,3 +378,41 @@ PROGRESS: 20% complete
 
 **** Learning models with 14, 15 and 16 architectures ****
 
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 4 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 2 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+

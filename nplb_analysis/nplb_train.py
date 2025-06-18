@@ -9,22 +9,19 @@ def parse_nplb_train_args():
     parser = argparse.ArgumentParser(
         description="Run promoterLearn training on neighbourhood FASTA"
     )
-    # parser.add_argument(
-    #     "--fasta", "-f",
-    #     required=True,
-    #     help="Input FASTA file (neighbourhood sequences) for training"
-    # )
+
     parser.add_argument(
-        "--output_prefix", "-o",
+        "--nplb_train_dir", "-o",
+        dest="nplb_train_dir",
         required=True,
-        help="Output directory of NPLB training results, which includes architectureDetails.txt"
+        help="Directory of NPLB training results, which includes architectureDetails.txt"
     )
     return parser.parse_args()
 
 def main():
     args = parse_nplb_train_args()
     # fasta = args.fasta
-    output_prefix = args.output_prefix
+    output_prefix = args.nplb_train_dir
 
     # -- Parse architectural details if file exists in output directory --
     arch_file = os.path.join(os.path.dirname(output_prefix),
