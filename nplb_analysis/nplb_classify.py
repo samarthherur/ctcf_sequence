@@ -4,16 +4,36 @@ import os
 import json
 import csv
 import pandas as pd
+import argparse
 from nplb_helper_functions import *
+
+def parse_nplb_classify_args():
+    """
+    Parse arguments for classification: input FASTA, model, output prefix,
+    and a TSV mapping file with columns 'original_cluster_id', 'mapped_cluster_id', 'flip'.
+    """
+    parser = argparse.ArgumentParser(
+        description="Run promoterClassify on neighbourhood FASTA with cluster mapping"
+    )
+    parser.add_argument(
+        "--nplb_classify_dir", "-o",
+        dest="nplb_classify_dir",
+        required=True,
+        help="Directory where promoterClassify output resides"
+    )
+    parser.add_argument(
+        "--cluster_map_tsv",
+        required=False,
+        default=None,
+        help="Optional TSV file mapping original_cluster_id to mapped_cluster_id, with a 'flip' column"
+    )
+    return parser.parse_args()
 
 def main():
     args = parse_nplb_classify_args()
     # Update architectureDetails.txt before classification
-    base_dir = os.path.dirname(args.output_prefix)
+    base_dir = args.nplb_classify_dir
     update_architecture_details(base_dir, args.cluster_map_tsv)
-    fasta         = args.fasta
-    model         = args.model
-    output_prefix = args.output_prefix
 
     # Load cluster mapping TSV into a dict: original -> (mapped, flip)
     if args.cluster_map_tsv:
@@ -33,15 +53,12 @@ def main():
         # default mapping: identity, no flip
         cluster_map = None
 
-    # 1) Run promoterClassify
-    run_promoter_classify(fasta, model, output_prefix)
 
     # -- Parse architectural details if present --
-    arch_file = os.path.join(os.path.dirname(output_prefix), 'architectureDetails.txt')
-    
+    arch_file = os.path.join(base_dir, 'architectureDetails.txt')
+    out_dir = base_dir
     if os.path.exists(arch_file):
         nplb_clustered = pd.read_csv(arch_file, sep='\t', header=None)
-        out_dir = os.path.dirname(arch_file)
 
         # Prepare DataFrame with duplicate strand column
         df_nplb = pd.DataFrame(columns=[

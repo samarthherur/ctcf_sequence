@@ -2,6 +2,25 @@ import os
 import pandas as pd
 from nplb_helper_functions import *
 
+def parse_nplb_train_args():
+    """
+    Parse arguments for training: only input FASTA and output prefix.
+    """
+    parser = argparse.ArgumentParser(
+        description="Run promoterLearn training on neighbourhood FASTA"
+    )
+    # parser.add_argument(
+    #     "--fasta", "-f",
+    #     required=True,
+    #     help="Input FASTA file (neighbourhood sequences) for training"
+    # )
+    parser.add_argument(
+        "--output_prefix", "-o",
+        required=True,
+        help="Output directory of NPLB training results, which includes architectureDetails.txt"
+    )
+    return parser.parse_args()
+
 def main():
     args = parse_nplb_train_args()
     # fasta = args.fasta
