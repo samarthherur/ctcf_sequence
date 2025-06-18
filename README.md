@@ -25,59 +25,61 @@ Final classification"]
     F --> G
   end
 ```
+```mermaid
 flowchart TD
   subgraph FIMO
-    A["Raw FIMO TSV \
-(motif calls)"] --> B["fimo_neighborhood_analysis.py \
-Inputs: \
-- --fimo_filepath → Raw FIMO TSV \
-- --genome_fasta → Genome FASTA \
-- --chip_filepath → ChIP-seq peaks BED \
-- --boundary → Boundary regions BED \
-Outputs: \
-- filtered_neighborhood_wr.fasta \
-- filtered_neighborhood.bed"]
+    A["Raw FIMO TSV
+(motif calls)"] --> B["fimo_neighborhood_analysis.py
+Inputs:
+fimo_filepath → Raw FIMO TSV
+genome_fasta → Genome FASTA
+chip_filepath → ChIP-seq peaks BED
+boundary → Boundary regions BED
+Outputs:
+filtered_neighborhood_wr.fasta
+filtered_neighborhood.bed"]
     B --> C["Filtered Neighborhood WR FASTA"]
   end
 
   subgraph NPLB_Train_Pipeline
-    C --> D["train.sh (promoterLearn) \
-Inputs: \
-- filtered_neighborhood_wr.fasta \
-Outputs: \
-- architectureDetails.txt \
-- bestModel.p"]
-    D --> E["nplb_train.py \
-Inputs: \
-- architectureDetails.txt \
-Outputs: \
-- nplb_clustered.bed"]
-    E --> F["nplb_ordering.py \
-Inputs: \
-- nplb_clustered.bed \
-- (opt) tss.bed \
-- (opt) phastCons.bw \
-Outputs: \
-- cluster_mapping.tsv \
-- architectureDetails_updated.txt \
-- nplb_clustered_updated.bed"]
+    C --> D["train.sh (promoterLearn)
+Inputs:
+filtered_neighborhood_wr.fasta
+Outputs:
+architectureDetails.txt
+bestModel.p"]
+    D --> E["nplb_train.py
+Inputs:
+architectureDetails.txt
+Outputs:
+nplb_clustered.bed"]
+    E --> F["nplb_ordering.py
+Inputs:
+nplb_clustered.bed
+(optional) tss.bed
+(optional) phastCons.bw
+Outputs:
+cluster_mapping.tsv
+architectureDetails_updated.txt
+nplb_clustered_updated.bed"]
   end
 
   subgraph NPLB_Classify_Pipeline
-    C --> H["promoterClassify \
-Inputs: \
-- filtered_neighborhood_wr.fasta \
-- bestModel.p \
-Outputs: \
-- classification_scores.tsv"]
-    H --> G["nplb_classify.py \
-Inputs: \
-- classification_scores.tsv (from promoterClassify) \
-- cluster_mapping.tsv (from nplb_ordering.py) \
-Outputs: \
-- nplb_clustered_classified.bed"]
+    C --> H["promoterClassify
+Inputs:
+filtered_neighborhood_wr.fasta
+bestModel.p
+Outputs:
+classification_scores.tsv"]
+    H --> G["nplb_classify.py
+Inputs:
+classification_scores.tsv (from promoterClassify)
+cluster_mapping.tsv (from nplb_ordering.py)
+Outputs:
+nplb_clustered_classified.bed"]
     F --> G
   end
+```
 
 
 ## 1. Conceptual & Usage Overview of `~/ctcf_sequence/fimo_analysis/fimo_neighbourhood_analysis.py`
