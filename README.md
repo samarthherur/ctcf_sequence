@@ -159,7 +159,7 @@ python nplb_train.py \
   --output_prefix /home/samarth/ctcf_sequence_data/output/NPLB/HFF/output_prefix
 ```
 
-## 1. Conceptual & Usage Overview of `nplb_ordering.py`
+## 4. Conceptual & Usage Overview of `nplb_ordering.py`
 
 This Python script performs a multi‐step analysis on NPLB‐clustered windows, optionally computing  
 - **Gene‐TSS distances** and hypergeometric enrichment  
