@@ -1,3 +1,31 @@
+```mermaid
+flowchart TD
+  subgraph FIMO
+    A["Raw FIMO TSV
+(motif calls)"] --> B["fimo_neighborhood_analysis.py
+Neighborhood Extraction"]
+    B --> C["Filtered Neighborhood
+WR FASTA"]
+  end
+
+  subgraph NPLB Train Pipeline
+    C --> D["train.sh
+promoterLearn"]
+    D --> E["nplb_train.py
+Train NPLB Model"]
+    E --> F["nplb_ordering.py
+Compute metrics & Cluster Mapping"]
+  end
+
+  subgraph NPLB Classify Pipeline
+    C --> H["promoterClassify
+Classify sequences with learnt model"]
+    H --> G["nplb_classify.py
+Final classification"]
+    F --> G
+  end
+```
+
 ## 1. Conceptual & Usage Overview of `~/ctcf_sequence/fimo_analysis/fimo_neighbourhood_analysis.py`
 
 This script implements an end-to-end pipeline to take raw FIMO motif calls and integrate them with ChIP-seq and boundary data, producing statistical summaries and visualizations at each step.
@@ -302,30 +330,4 @@ python nplb_classify.py \
   --nplb_classify_dir /path/to/NPLB/output \
   --cluster_map_tsv /path/to/cluster_mapping.tsv
 ```
-```mermaid
-flowchart TD
-  subgraph FIMO_Neighborhood
-    A["Raw FIMO TSV
-(motif calls)"] --> B["fimo_neighborhood_analysis.py
-Neighborhood Extraction"]
-    B --> C["Filtered Neighborhood
-WR FASTA"]
-  end
 
-  subgraph NPLB_Model_Pipeline
-    C --> D["train.sh
-promoterLearn"]
-    D --> E["nplb_train.py
-Generate nplb_clustered.bed"]
-    E --> F["nplb_ordering.py
-Compute metrics & cluster mapping"]
-  end
-
-  subgraph Sequence_Classification
-    C --> H["promoterClassify
-Score sequences with trained model"]
-    H --> G["nplb_classify.py
-Final classification"]
-    F --> G
-  end
-```
