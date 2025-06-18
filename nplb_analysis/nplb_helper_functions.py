@@ -236,3 +236,51 @@ def update_architecture_details(base_dir: str, cluster_map_tsv: str):
         updated_path = os.path.join(base_dir, 'architectureDetails_updated.txt')
         arch.to_csv(updated_path, sep='\t', header=False, index=False)
         print(f"Saved updated architecture details to {updated_path}")
+        
+def update_nplb_bed(base_dir: str, cluster_map_tsv: str):
+    """
+    Reads nplb_clustered.bed in base_dir, applies mapping TSV (drops None mappings,
+    flips strand if flagged), and writes nplb_clustered_updated.bed.
+    """
+    import os, csv, pandas as pd
+
+    bed_in = os.path.join(base_dir, 'nplb_clustered.bed')
+    if not (os.path.exists(bed_in) and cluster_map_tsv and os.path.exists(cluster_map_tsv)):
+        return
+
+    # Load mapping with flip
+    cluster_map = {}
+    with open(cluster_map_tsv, newline='') as mf:
+        reader = csv.DictReader(mf, delimiter='\t')
+        for row in reader:
+            orig = str(row['original_cluster_id'])
+            mapped = row['mapped_cluster_id']
+            flip_flag = row['flip'].lower() == 'true'
+            if mapped in (None, '', 'None'):
+                mapped_val = None
+            else:
+                mapped_val = str(mapped)
+            cluster_map[orig] = (mapped_val, flip_flag)
+
+    # Read and transform BED
+    df = pd.read_csv(bed_in, sep='\t', header=None)
+    new_rows = []
+    for _, row in df.iterrows():
+        orig = str(row[3])
+        if orig not in cluster_map:
+            continue
+        mapped_val, flip_flag = cluster_map[orig]
+        if mapped_val is None:
+            continue
+        strand = row[4]
+        if flip_flag:
+            strand = '+' if strand == '-' else '-'
+        new_rows.append([row[0], row[1], row[2], mapped_val, strand])
+
+    if not new_rows:
+        return
+
+    df_out = pd.DataFrame(new_rows, columns=[0,1,2,3,4])
+    out_bed = os.path.join(base_dir, 'nplb_clustered_updated.bed')
+    df_out.to_csv(out_bed, sep='\t', header=False, index=False)
+    print(f"Saved updated NPLB BED to {out_bed}")
