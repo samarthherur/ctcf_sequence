@@ -232,3 +232,46 @@ python nplb_ordering.py \
   -d 1,2 \
   -f 3,4
 ```
+
+## 5. Conceptual & Usage Overview of `nplb_classify.py`
+
+This script builds an NPLB clustered‐window BED file from `architectureDetails.txt`, then applies a user‐supplied cluster‐mapping TSV to:
+
+1. **Update** `architectureDetails.txt` → `architectureDetails_updated.txt` (integer IDs).  
+2. **Generate** `nplb_clustered.bed` from the raw architecture details.  
+3. **Remap & flip** the BED into `nplb_clustered_classified.bed` using the mapping TSV.
+
+---
+
+### Inputs
+
+| Flag                              | Parameter              | Type   | Required | Description                                                                                      |
+|-----------------------------------|------------------------|--------|----------|--------------------------------------------------------------------------------------------------|
+| `-o`, `--nplb_classify_dir`       | `<classify_dir>`       | string | yes      | Directory containing `architectureDetails.txt` (output of promoterLearn).                       |
+| `--cluster_map_tsv`               | `<map_tsv>`            | string | no       | TSV with columns `original_cluster_id`, `mapped_cluster_id`, `flip`.                            |
+
+---
+
+### Processing Steps
+
+1. **Build `nplb_clustered.bed`**  
+   - Read `architectureDetails.txt` from `nplb_classify_dir`.  
+   - Parse each line (`chr:start-end`) into `chr`, `start`, `end`, infer `strand` (+/–).  
+   - Use column 1 as `cluster`.  
+   - Write `nplb_clustered.bed`.
+
+2. **Update Architecture Details**  
+   - Call `update_architecture_details()` to map and cast cluster IDs to integers in `architectureDetails_updated.txt`.
+
+3. **Remap & Flip BED**  
+   - Call `update_nplb_bed()` to read `nplb_clustered.bed`, apply the TSV mapping (drop `None`), flip strands where indicated, and write `nplb_clustered_classified.bed`.
+
+---
+
+### Usage
+
+```bash
+python nplb_classify.py \
+  --nplb_classify_dir /path/to/NPLB/output \
+  --cluster_map_tsv /path/to/cluster_mapping.tsv
+```
