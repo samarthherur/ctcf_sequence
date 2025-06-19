@@ -11,7 +11,7 @@ from plot_helper_functions import parse_architectural_details
 def main():
     parser = argparse.ArgumentParser(description="CTCF neighbourhood vs ChIP-seq analysis")
     parser.add_argument("--ctcf_neighbourhood_file", "-n", required=True,
-                        help="Path to CTCF neighbourhood BED")
+                        help="Path to CTCF neighbourhood BED ")
     parser.add_argument("--architectural_details", "-a", required=True,
                         help="Path to architectureDetails.txt")
     parser.add_argument("--chip_dir", "-c", required=True,
