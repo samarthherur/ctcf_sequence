@@ -94,6 +94,64 @@ def main():
     plt.savefig(os.path.join(output_directory, 'sig_matrix.png'))
     plt.close()
 
+    # common intersection across all ChIP files
+    common_chip_bed = os.path.join(output_directory, "nplb_chip_common.bed")
+    prev = nplb_bed
+    for peak in sorted(os.listdir(chip_dir)):
+        if not peak.endswith('.bed'):
+            continue
+        chip_path = os.path.join(chip_dir, peak)
+        os.system(f"bedtools intersect -a {prev} -b {chip_path} -u > {common_chip_bed}")
+        prev = common_chip_bed
+
+    # load common chip intersections for stats
+    df_common_chip = pd.read_csv(common_chip_bed, sep="\t", header=None,
+                                 names=["chr","start","end","cluster","strand"])
+    sample_common_chip = len(df_common_chip)
+    obs_common_chip = df_common_chip["cluster"].value_counts().to_dict()
+
+    # prepare common chip result arrays
+    p_common_chip = np.zeros((unique_clusters, 1))
+    cdf_common_chip = np.zeros((unique_clusters, 1))
+    sig_common_chip = np.zeros((unique_clusters, 1))
+    bonf_chip = threshold / unique_clusters
+
+    # compute hypergeometric test for common chip intersection
+    for i, cl in enumerate(sorted(cluster_counts.index)):
+        K = cluster_counts.loc[cl]
+        k = obs_common_chip.get(cl, 0)
+        p = hypergeom.sf(k-1, pop_size, K, sample_common_chip)
+        cdf = hypergeom.cdf(k-1, pop_size, K, sample_common_chip)
+        p_common_chip[i, 0] = p
+        cdf_common_chip[i, 0] = cdf
+        if p < cdf and p <= bonf_chip:
+            sig_common_chip[i, 0] = 1
+        elif cdf <= bonf_chip:
+            sig_common_chip[i, 0] = -1
+        else:
+            sig_common_chip[i, 0] = 0
+
+    # save common chip significance matrix
+    cols_chip = ["common_chip"]
+    pd.DataFrame(p_common_chip, index=sorted(cluster_counts.index), columns=cols_chip) \
+      .to_csv(os.path.join(output_directory, "common_chip_p_values_df.csv"))
+    pd.DataFrame(cdf_common_chip, index=sorted(cluster_counts.index), columns=cols_chip) \
+      .to_csv(os.path.join(output_directory, "common_chip_cdf_values_df.csv"))
+    pd.DataFrame(sig_common_chip, index=sorted(cluster_counts.index), columns=cols_chip) \
+      .to_csv(os.path.join(output_directory, "common_chip_sig_matrix_df.csv"))
+
+    # plot common chip heatmap
+    plt.figure(figsize=(4, max(5, unique_clusters/2)))
+    sns.heatmap(sig_common_chip, cmap='coolwarm', cbar=False,
+                xticklabels=cols_chip, yticklabels=sorted(cluster_counts.index),
+                linewidths=1, linecolor='black')
+    plt.xlabel('Common ChIP')
+    plt.ylabel('Cluster')
+    plt.title('Common ChIP Intersection Significance')
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_directory, "common_chip_sig_matrix.png"))
+    plt.close()
+
     print("Analysis complete. Outputs written to:", output_directory)
 
 if __name__ == "__main__":

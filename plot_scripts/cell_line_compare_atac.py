@@ -101,6 +101,67 @@ def main():
     plt.savefig(os.path.join(output_directory, 'sig_matrix.png'))
     plt.close()
 
+    # step 7: common intersection across all ATAC files
+    common_bed = os.path.join(output_directory, "nplb_atac_common.bed")
+    prev = atac_filtered_bed
+    for peak in sorted(os.listdir(atac_dir)):
+        if not peak.endswith('.bed'):
+            continue
+        bed_path = os.path.join(atac_dir, peak)
+        os.system(f"bedtools intersect -a {prev} -b {bed_path} -u > {common_bed}")
+        prev = common_bed
+
+    # load common intersections for stats
+    df_common = pd.read_csv(common_bed, sep="\t", header=None,
+                             names=["chr","start","end","cluster","strand"])
+    sample_common = len(df_common)
+    obs_common = df_common["cluster"].value_counts().to_dict()
+
+    # prepare common result arrays
+    p_common = np.zeros((unique_clusters, 1))
+    cdf_common = np.zeros((unique_clusters, 1))
+    sig_common = np.zeros((unique_clusters, 1))
+
+    # compute hypergeometric test for common intersection
+    for i, cl in enumerate(sorted(cluster_counts.index)):
+        K = cluster_counts.loc[cl]
+        k = obs_common.get(cl, 0)
+        p = hypergeom.sf(k-1, pop_size, K, sample_common)
+        cdf = hypergeom.cdf(k-1, pop_size, K, sample_common)
+        p_common[i, 0] = p
+        cdf_common[i, 0] = cdf
+        bonf = threshold / unique_clusters
+        if p < cdf and p <= bonf:
+            sig_common[i, 0] = 1
+        elif cdf <= bonf:
+            sig_common[i, 0] = -1
+        else:
+            sig_common[i, 0] = 0
+
+    # save common significance matrix
+    common_col = ["common_atac"]
+    pd.DataFrame(p_common, index=sorted(cluster_counts.index), columns=common_col).to_csv(
+        os.path.join(output_directory, "common_p_values_df.csv")
+    )
+    pd.DataFrame(cdf_common, index=sorted(cluster_counts.index), columns=common_col).to_csv(
+        os.path.join(output_directory, "common_cdf_values_df.csv")
+    )
+    pd.DataFrame(sig_common, index=sorted(cluster_counts.index), columns=common_col).to_csv(
+        os.path.join(output_directory, "common_sig_matrix_df.csv")
+    )
+
+    # plot common heatmap
+    plt.figure(figsize=(4, max(5, unique_clusters/2)))
+    sns.heatmap(sig_common, cmap='coolwarm', cbar=False,
+                xticklabels=common_col, yticklabels=sorted(cluster_counts.index),
+                linewidths=1, linecolor='black')
+    plt.xlabel('Common ATAC')
+    plt.ylabel('Cluster')
+    plt.title('Common ATAC Intersection Significance')
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_directory, "common_sig_matrix.png"))
+    plt.close()
+
     print("Analysis complete. Outputs written to:", output_directory)
 
 if __name__ == "__main__":
