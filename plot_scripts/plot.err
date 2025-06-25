@@ -1,0 +1,33 @@
+/bin/bash: /apps/compilers/anaconda3-2023.3/lib/libtinfo.so.6: no version information available (required by /bin/bash)
+2025-06-25 15:02:25,398 [INFO] Output directory: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps
+2025-06-25 15:02:25,441 [INFO] Found 16 clusters
+2025-06-25 15:02:25,466 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_1.bed
+2025-06-25 15:02:25,476 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_2.bed
+2025-06-25 15:02:25,485 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_3.bed
+2025-06-25 15:02:25,494 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_4.bed
+2025-06-25 15:02:25,501 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_5.bed
+2025-06-25 15:02:25,507 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_6.bed
+2025-06-25 15:02:25,514 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_7.bed
+2025-06-25 15:02:25,520 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_8.bed
+2025-06-25 15:02:25,526 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_9.bed
+2025-06-25 15:02:25,533 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_10.bed
+2025-06-25 15:02:25,541 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_11.bed
+2025-06-25 15:02:25,549 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_12.bed
+2025-06-25 15:02:25,556 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_13.bed
+2025-06-25 15:02:25,561 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_14.bed
+2025-06-25 15:02:25,569 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_15.bed
+2025-06-25 15:02:25,578 [INFO] Wrote cluster BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_cluster_16.bed
+2025-06-25 15:02:25,585 [INFO] Concatenated BED: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_clusters_concatenated.bed
+2025-06-25 15:02:25,585 [INFO] bedtools getfasta -fi /home/samarth/hg38/hg38.fa -bed /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_clusters_concatenated.bed -fo /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_clusters_sequences.fa -s
+sh: 1: bedtools: not found
+2025-06-25 15:02:25,590 [INFO] FASTA→ /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_clusters_sequences.fa
+2025-06-25 15:02:25,590 [INFO] computeMatrix reference-point --referencePoint center -a 50000 -b 50000 -S /home/samarth/dekker_microc/H1ESC/4DNFI6YRK53R_insulation.bw -R /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_clusters_concatenated.bed -o /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/insul.mat.gz -p 80
+2025-06-25 15:15:21,043 [INFO] plotHeatmap -m /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/insul.mat.gz -out /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/insul.png --colorMap Greens --whatToShow "heatmap and colorbar" --sortRegions no --boxAroundHeatmaps no --dpi 300 --heatmapHeight 100 --heatmapWidth 30
+2025-06-25 15:17:31,928 [INFO] insul heatmap: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/insul.png
+2025-06-25 15:17:31,928 [INFO] computeMatrix reference-point --referencePoint center -a 1000 -b 1000 -S /home/samarth/ChIP_Seq/ENCFF041TAK_chip_h1_hg38_signal.bw -R /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_clusters_concatenated.bed -o /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/chip.mat.gz -p 80
+2025-06-25 15:18:16,034 [INFO] plotHeatmap -m /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/chip.mat.gz -out /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/chip.png --colorMap Oranges_r --whatToShow "heatmap and colorbar" --sortRegions no --boxAroundHeatmaps no --dpi 300 --heatmapHeight 100 --heatmapWidth 30
+2025-06-25 15:18:35,588 [INFO] chip heatmap: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/chip.png
+2025-06-25 15:18:35,589 [INFO] computeMatrix scale-regions  -S /home/samarth/phastcons/hg38.phastCons100way.bw -R /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/nplb_clusters_concatenated.bed -o /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/phast.mat.gz -p 80
+2025-06-25 15:19:09,199 [INFO] plotHeatmap -m /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/phast.mat.gz -out /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/phast.png --colorMap Blues_r --whatToShow "heatmap and colorbar" --sortRegions no --boxAroundHeatmaps no --dpi 300 --heatmapHeight 100 --heatmapWidth 30
+2025-06-25 15:19:28,389 [INFO] phast heatmap: /home/samarth/final_plots_thesis/preliminary_processing/plot_heatmaps/phast.png
+2025-06-25 15:21:31,754 [INFO] Done.
