@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
+import subprocess
 from Bio import SeqIO
 
 def dt_heatmap(concat_bed, bigwig, tag, mode, extra_args, output_dir, logger):
@@ -38,15 +39,42 @@ def dt_heatmap(concat_bed, bigwig, tag, mode, extra_args, output_dir, logger):
     logger.info(plot_cmd);  os.system(plot_cmd)
     logger.info(f"{tag} heatmap: {img}")
     
-    num_clusters = len(pd.read_csv(concat_bed, sep='\t', header=None)[3].unique())
+    # ----------------------------------------------------------------------
+    # plotProfile for this tag (all clusters)
+    # ----------------------------------------------------------------------
+    # get cluster labels from concatenated BED
+    df_concat = pd.read_csv(concat_bed, sep="\t", header=None)
+    cluster_ids = sorted(df_concat[3].unique())
+    cluster_labels = [str(int(c)) for c in cluster_ids]
+
+    # prepare colors
     color_list = list(mcolors.TABLEAU_COLORS.values())
-    
-    if num_clusters > len(color_list):
+    if len(cluster_labels) > len(color_list):
         import matplotlib.pyplot as plt
-        cmap = plt.get_cmap('tab20', num_clusters)
-        colors = [mcolors.rgb2hex(cmap(i)) for i in range(num_clusters)]
+        cmap = plt.get_cmap('tab20', len(cluster_labels))
+        colors = [mcolors.rgb2hex(cmap(i)) for i in range(len(cluster_labels))]
     else:
-        colors = color_list[:num_clusters]
+        colors = color_list[:len(cluster_labels)]
+
+    # run plotProfile
+    img_profile = os.path.join(output_dir, f"{tag}_profile.png")
+    profile_cmd = [
+        'plotProfile',
+        '-m', mat,
+        '-out', img_profile,
+        '--averageType', 'median',
+        '--regionsLabel'
+    ] + cluster_labels + [
+        '--colors'
+    ] + colors + [
+        '--plotHeight', '30'
+    ]
+    result = subprocess.run(profile_cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        logger.error(f"plotProfile ({tag}) failed:\n{result.stderr}")
+    else:
+        logger.info(f"{tag} profile: {img_profile}")
+    
     
 
 def main():
