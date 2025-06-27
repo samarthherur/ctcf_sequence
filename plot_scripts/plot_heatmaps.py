@@ -26,7 +26,7 @@ def dt_heatmap(concat_bed, bigwig, tag, mode, extra_args, output_dir, logger):
             f"-S {bigwig} -R {concat_bed} -o {mat} -p 80"
         )
     logger.info(cmd);  os.system(cmd)
-    cmap_dict = {'insul':'Greens','chip':'Oranges_r','phast':'Blues_r','epi':'Greys'}
+    cmap_dict = {'insul':'Oranges_r','chip':'Oranges_r','phast':'Blues_r','epi':'Greys'}
     cmap = cmap_dict.get(tag, 'Greys')
     plot_cmd = (
         f"plotHeatmap -m {mat} -out {img} "
@@ -34,8 +34,20 @@ def dt_heatmap(concat_bed, bigwig, tag, mode, extra_args, output_dir, logger):
         f"--sortRegions no --boxAroundHeatmaps no "
         f"--dpi 300 --heatmapHeight 100 --heatmapWidth 30"
     )
+    
     logger.info(plot_cmd);  os.system(plot_cmd)
     logger.info(f"{tag} heatmap: {img}")
+    
+    num_clusters = len(pd.read_csv(concat_bed, sep='\t', header=None)[3].unique())
+    color_list = list(mcolors.TABLEAU_COLORS.values())
+    
+    if num_clusters > len(color_list):
+        import matplotlib.pyplot as plt
+        cmap = plt.get_cmap('tab20', num_clusters)
+        colors = [mcolors.rgb2hex(cmap(i)) for i in range(num_clusters)]
+    else:
+        colors = color_list[:num_clusters]
+    
 
 def main():
     p = argparse.ArgumentParser(
@@ -80,15 +92,10 @@ def main():
     by_cluster = {c: df[df[3]==c].copy() for c in clusters}
     logger.info(f"Found {len(by_cluster)} clusters")
 
-    # --- Per-cluster BEDs (with special flip+shift for cluster 11) ---
+    # --- Per-cluster BEDs  ---
     beds = []
     for c in clusters:
         sub = by_cluster[c].sample(frac=1, random_state=42).copy()
-        if c == 11:
-            sub.loc[:,[4,5]] = sub.loc[:,[4,5]].replace({'+':'-','-':'+'})
-            plus = sub[4]=='+'; minus=sub[4]=='-'
-            sub.loc[plus,1]+=3; sub.loc[plus,2]+=3
-            sub.loc[minus,1]-=3; sub.loc[minus,2]-=3
         path = os.path.join(output_dir, f"nplb_cluster_{c}.bed")
         sub.to_csv(path, sep='\t', header=False, index=False)
         beds.append(path)
