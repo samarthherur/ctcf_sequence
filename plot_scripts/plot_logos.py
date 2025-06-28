@@ -135,7 +135,6 @@ def main():
     parser.add_argument('-l', '--logo_file',    required=True, help='Path to architectureDetails file')
     parser.add_argument('-b', '--binding_file', required=True, help='Path to binding counts file')
     parser.add_argument('-t', '--tss_file',     required=True, help='Path to closest TSS file')
-    parser.add_argument('-o', '--out_path',     required=True, help='Output PNG path')
     args = parser.parse_args()
 
     # Read data
@@ -146,17 +145,23 @@ def main():
         pwm_results = pool.map(calculate_pwm_for_cluster, items)
     logo_pwm_dict = dict(pwm_results)
 
+    # Set output_dir as a subdirectory ("output") in the directory containing logo_file
+    output_dir = os.path.join(os.path.dirname(args.logo_file), "logos_output")
+    os.makedirs(output_dir, exist_ok=True)
+
     binding_df = read_binding_file(args.binding_file)
-    # Optionally save binding_df to TSV next to output
-    binding_output = os.path.join(os.path.dirname(args.out_path), 'binding_df.tsv')
+    binding_output = os.path.join(output_dir, 'binding_df.tsv')
     binding_df.to_csv(binding_output, sep='\t', index=False)
 
     tss_df = read_tss_file(args.tss_file)
-    tss_output = os.path.join(os.path.dirname(args.out_path), 'tss_df.tsv')
+    tss_output = os.path.join(output_dir, 'tss_df.tsv')
     tss_df.to_csv(tss_output, sep='\t', index=False)
 
+    # Set out_path for the combined figure in the output_dir
+    out_path = os.path.join(output_dir, "combined_figure.png")
+
     cluster_order = sorted(logo_data['Cluster'].unique())
-    plot_combined_figure(logo_pwm_dict, binding_df, tss_df, args.out_path, cluster_order)
+    plot_combined_figure(logo_pwm_dict, binding_df, tss_df, out_path, cluster_order)
 
 if __name__ == '__main__':
     main()
