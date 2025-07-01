@@ -14,13 +14,9 @@ from matplotlib.colors import ListedColormap
 import logomaker as lm
 
 #####################################################################################################################
-def fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, neighbourhood_size=50):
+def fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, n_a = 50, n_b = 50):
     # Read in FIMO output
     fimo = pd.read_csv(fimo_filepath, sep="\t")
-    
-    # Extend each match by neighbourhood_size on both sides
-    fimo['start'] = fimo['start'] - neighbourhood_size
-    fimo['stop']  = fimo['stop'] + neighbourhood_size
         
     # Remove rows with negative start values or NaNs
     fimo = fimo[fimo['start'] > 0].dropna(subset=['start', 'stop']).reset_index(drop=True)
@@ -63,6 +59,14 @@ def fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, neighbourhood
     # Shift minus-strand coordinates by -1
     fimo_minus['start'] -= 1
     fimo_minus['stop']  -= 1
+
+    # Apply asymmetric extension per strand
+    # Plus strand: upstream by n_a, downstream by n_b
+    fimo_plus['start'] = fimo_plus['start'] - n_a
+    fimo_plus['stop']  = fimo_plus['stop'] + n_b
+    # Minus strand: upstream (genomic downstream) by n_a, downstream by n_b
+    fimo_minus['start'] = fimo_minus['start'] - n_b
+    fimo_minus['stop']  = fimo_minus['stop'] + n_a
     
     # Build 'name' column
     for df in (fimo_plus, fimo_minus):
@@ -87,7 +91,7 @@ def fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, neighbourhood
     # Concatenate to get final neighbourhood BED
     fimo_neighbourhood_bed = pd.concat([fimo_plus_bed, fimo_minus_bed], ignore_index=True)
     fimo_neighbourhood_bed.to_csv(
-        os.path.join(output_dir, f'fimo_neighbourhood_{neighbourhood_size}.bed'),
+        os.path.join(output_dir, f'fimo_neighbourhood_{n_a}_{n_b}.bed'),
         sep="\t", header=False, index=False
     )
     
@@ -110,7 +114,7 @@ def fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, neighbourhood
     
     SeqIO.write(
         fimo_neighbourhood_seqs,
-        os.path.join(output_dir, f'fimo_neighbourhood_{neighbourhood_size}.fasta'),
+        os.path.join(output_dir, f'fimo_neighbourhood_{n_a}_{n_b}.fasta'),
         'fasta'
     )
     
@@ -118,8 +122,8 @@ def fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, neighbourhood
     print('FIMO neighbourhood files created:')
     print('  fimo_plus.bed  - neighbourhood file req for FASTA output')
     print('  fimo_minus.bed - neighbourhood file req for FASTA output')
-    print(f'  fimo_neighbourhood_{neighbourhood_size}.bed')
-    print(f'  fimo_neighbourhood_{neighbourhood_size}.fasta')
+    print(f'  fimo_neighbourhood_{n_a}_{n_b}.bed')
+    print(f'  fimo_neighbourhood_{n_a}_{n_b}.fasta')
     
     
 #####################################################################################################################
