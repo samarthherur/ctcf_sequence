@@ -277,39 +277,39 @@ def intersect_filtered_neighbourhood_boundary(filtered_neighbourhood_bed_file, b
 
 ###function that creates a matrix of all neighbourhoods
 def matrix_neighbourhood(neighbourhood_bed_file, chipseq_bed, boundary_bed, output_dir):
-    #read in the bed files
-    # neighbourhood_bed = pd.read_csv(neighbourhood_bed_file, sep="\t", header=None)
-    # chipseq_bed = pd.read_csv(chipseq_bed, sep="\t", header=None)
-    # boundary_bed = pd.read_csv(boundary_bed, sep="\t", header=None)
-    
+    import os  # Ensure os is imported inside the function
+    # Define output paths using os.path.join
+    chip_out = os.path.join(output_dir, 'neighbourhood_ifchip.bed')
+    boundary_out = os.path.join(output_dir, 'neighbourhood_ifboundary.bed')
+
     #create a list of neighbourhoods that overlap with chipseq peaks 
     #bedtools with -c option will report the number of times that the feature in A overlaps with features in B
-    os.system('bedtools intersect -a ' + neighbourhood_bed_file + ' -b ' + chipseq_bed + ' -c > ' + output_dir + 'neighbourhood_ifchip.bed')
-    
+    os.system(f'bedtools intersect -a {neighbourhood_bed_file} -b {chipseq_bed} -c > {chip_out}')
+
     #create a list of neighbourhoods that overlap with boundaries
-    os.system('bedtools intersect -a ' + neighbourhood_bed_file + ' -b ' + boundary_bed + ' -c > ' + output_dir + 'neighbourhood_ifboundary.bed')
-    
+    os.system(f'bedtools intersect -a {neighbourhood_bed_file} -b {boundary_bed} -c > {boundary_out}')
+
     #read in the bed files
-    neighbourhood_ifchip = pd.read_csv(output_dir + 'neighbourhood_ifchip.bed', sep="\t", header=None)
-    neighbourhood_ifboundary = pd.read_csv(output_dir + 'neighbourhood_ifboundary.bed', sep="\t", header=None)
-    
+    neighbourhood_ifchip = pd.read_csv(chip_out, sep="\t", header=None)
+    neighbourhood_ifboundary = pd.read_csv(boundary_out, sep="\t", header=None)
+
     if len(neighbourhood_ifboundary) != len(neighbourhood_ifchip):
         raise ValueError('Length of neighbourhood_ifchip and neighbourhood_ifboundary are not equal')
     else:
         pass
-    
+
     #apply step function both neighbourhood_chip and neighbourhood_boundary
     neighbourhood_ifchip[6] = np.where(neighbourhood_ifchip[6] > 0, 1, 0)
     neighbourhood_ifboundary[6] = np.where(neighbourhood_ifboundary[6] > 0, 1, 0)
-    
+
     #create a df with 6th column of neighbourhood_chip and neighbourhood_boundary
     df = pd.DataFrame()
     df['chip'] = neighbourhood_ifchip[6]
     df['boundary'] = neighbourhood_ifboundary[6]
     df['score'] = neighbourhood_ifchip[4]
-    
+
     df.head()
-    
+
     # save the df to tsv file
     matrix_path = os.path.join(output_dir, 'neighbourhood_matrix.tsv')
     df.to_csv(matrix_path, sep="\t", index=False)
