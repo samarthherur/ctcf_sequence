@@ -226,7 +226,7 @@ def chip_filtered_neighbourhood(neighbourhood_bed_file, chipseq_bed_file, genome
     chipseq_bed = pd.read_csv(chipseq_bed_file, sep="\t", header=None)
     
     #create a list of neighbourhoods that overlap with chipseq peaks
-    os.system('bedtools intersect -a ' + neighbourhood_bed_file + ' -b ' + chipseq_bed_file + ' -wa > ' + neighbourhood_bed_file[:-4] + '_filtered.bed')
+    os.system('bedtools intersect -a ' + neighbourhood_bed_file + ' -b ' + chipseq_bed_file + ' -u > ' + neighbourhood_bed_file[:-4] + '_filtered.bed')
     #get fasta file for the filtered neighbourhood + and - strands
     os.system('bedtools getfasta -s -fi ' + genome_fasta + ' -bed ' + neighbourhood_bed_file[:-4] + '_filtered.bed -fo ' + neighbourhood_bed_file[:-4] + '_filtered.fasta')
     
@@ -249,7 +249,7 @@ def intersect_filtered_neighbourhood_boundary(filtered_neighbourhood_bed_file, b
     boundary_bed = pd.read_csv(boundary_bed_file, sep="\t", header=None)
     
     #create a list of neighbourhoods that overlap with boundaries
-    os.system('bedtools intersect -a ' + filtered_neighbourhood_bed_file + ' -b ' + boundary_bed_file + ' -wa > ' + filtered_neighbourhood_bed_file[:-4] + '_int_boundary.bed')
+    os.system('bedtools intersect -a ' + filtered_neighbourhood_bed_file + ' -b ' + boundary_bed_file + ' -u > ' + filtered_neighbourhood_bed_file[:-4] + '_int_boundary.bed')
     #get fasta file
     os.system('bedtools getfasta -s -fi ' + genome_fasta + ' -bed ' + filtered_neighbourhood_bed_file[:-4] + '_int_boundary.bed -fo ' + filtered_neighbourhood_bed_file[:-4] + '_int_boundary.fasta')
     
@@ -310,9 +310,10 @@ def matrix_neighbourhood(neighbourhood_bed_file, chipseq_bed, boundary_bed, outp
     
     df.head()
     
-    #save the df to tsv file
-    df.to_csv(output_dir + 'neighbourhood_matrix.tsv', sep="\t", index=False)
-    print(f'Neighbourhood matrix saved as {output_dir}neighbourhood_matrix.tsv')
+    # save the df to tsv file
+    matrix_path = os.path.join(output_dir, 'neighbourhood_matrix.tsv')
+    df.to_csv(matrix_path, sep="\t", index=False)
+    print(f'Neighbourhood matrix saved as {matrix_path}')
     
 def fasta_without_repeats(fasta_path):
     """
@@ -366,7 +367,7 @@ def plot_intersect_distribution(int_scores, no_int_scores, output_dir, n_a, n_b,
 
 # -------------------------------------------------------------------------------------------------
 # Count windows for various neighbourhood stages and repeat-free sequences
-def count_neighbourhood_windows(output_dir, neighbourhood_size, report):
+def count_neighbourhood_windows(output_dir, n_a, n_b, report):
     """
     Count windows for raw, filtered, intersecting, non-intersecting stages,
     plus repeat-free sequences, writing counts to report.
@@ -375,10 +376,10 @@ def count_neighbourhood_windows(output_dir, neighbourhood_size, report):
     from Bio import SeqIO
 
     stages = {
-        'raw': f"fimo_neighbourhood_{neighbourhood_size}.bed",
-        'filtered': f"fimo_neighbourhood_{neighbourhood_size}_filtered.bed",
-        'int_boundary': f"fimo_neighbourhood_{neighbourhood_size}_filtered_int_boundary.bed",
-        'no_int_boundary': f"fimo_neighbourhood_{neighbourhood_size}_filtered_no_int_boundary.bed"
+        'raw': f"fimo_neighbourhood_{n_a}_{n_b}.bed",
+        'filtered': f"fimo_neighbourhood_{n_a}_{n_b}_filtered.bed",
+        'int_boundary': f"fimo_neighbourhood_{n_a}_{n_b}_filtered_int_boundary.bed",
+        'no_int_boundary': f"fimo_neighbourhood_{n_a}_{n_b}_filtered_no_int_boundary.bed"
     }
     for name, fname in stages.items():
         path = os.path.join(output_dir, fname)
@@ -387,7 +388,7 @@ def count_neighbourhood_windows(output_dir, neighbourhood_size, report):
                 cnt = sum(1 for _ in bf)
             report.write(f"Number of {name} neighbourhood windows: {cnt}\n")
 
-    wr_fasta = os.path.join(output_dir, f"fimo_neighbourhood_{neighbourhood_size}_filtered_wr.fasta")
+    wr_fasta = os.path.join(output_dir, f"fimo_neighbourhood_{n_a}_{n_b}_filtered_wr.fasta")
     if os.path.exists(wr_fasta):
         cnt = sum(1 for _ in SeqIO.parse(wr_fasta, "fasta"))
         report.write(f"Number of repeat-free sequences: {cnt}\n")

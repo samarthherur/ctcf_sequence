@@ -1,1 +1,17 @@
 /bin/bash: /apps/compilers/anaconda3-2023.3/lib/libtinfo.so.6: no version information available (required by /bin/bash)
+Error: malformed BED entry at line 451934. Start Coordinate detected that is < 0. Exiting.
+Error: malformed BED entry at line 417610. Start Coordinate detected that is < 0. Exiting.
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: malformed BED entry at line 451934. Start Coordinate detected that is < 0. Exiting.
+Error: malformed BED entry at line 417610. Start Coordinate detected that is < 0. Exiting.
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
