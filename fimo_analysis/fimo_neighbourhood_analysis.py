@@ -100,7 +100,7 @@ def main():
     median_no_int = no_int_bed[4].median()
     report.write(f"Median score (non-intersecting boundary): {median_no_int}\n")
 
-    plot_intersect_distribution(int_bed[4], no_int_bed[4], output_dir, n_a)
+    plot_intersect_distribution(int_bed[4], no_int_bed[4], output_dir, n_a, n_b)
 
     # -- Perform Kolmogorov–Smirnov test between intersecting and non-intersecting scores --
     statistic, pvalue = stats.ks_2samp(int_bed[4], no_int_bed[4])

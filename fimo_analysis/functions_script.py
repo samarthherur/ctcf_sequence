@@ -333,7 +333,7 @@ def fasta_without_repeats(fasta_path):
 
 # -------------------------------------------------------------------------------------------------
 # Plot intersect vs. non-intersect score distributions
-def plot_intersect_distribution(int_scores, no_int_scores, output_dir, neighbourhood_size, bins=30):
+def plot_intersect_distribution(int_scores, no_int_scores, output_dir, n_a, n_b, bins=30):
     """
     Plot & save histogram + KDE comparing intersect vs non-intersect scores.
     """
@@ -359,7 +359,7 @@ def plot_intersect_distribution(int_scores, no_int_scores, output_dir, neighbour
     plt.ylabel("Density")
     plt.legend()
     plt.tight_layout()
-    outfile = os.path.join(output_dir, f"score_distribution_{neighbourhood_size}.png")
+    outfile = os.path.join(output_dir, f"score_distribution_{n_a}_{n_b}.png")
     plt.savefig(outfile)
     plt.close()
 
