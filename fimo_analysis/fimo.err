@@ -1,1 +1,6 @@
 /bin/bash: /apps/compilers/anaconda3-2023.3/lib/libtinfo.so.6: no version information available (required by /bin/bash)
+Feature (chr12_KI270834v1_alt:119429-119547) beyond the length of chr12_KI270834v1_alt size (119498 bp).  Skipping.
+Feature (chr7_KI270805v1_alt:209874-209992) beyond the length of chr7_KI270805v1_alt size (209988 bp).  Skipping.
+Feature (chr21_KI270872v1_alt:82584-82702) beyond the length of chr21_KI270872v1_alt size (82692 bp).  Skipping.
+Feature (chr17_GL000258v2_alt:1821906-1822024) beyond the length of chr17_GL000258v2_alt size (1821992 bp).  Skipping.
+Feature (chr2_KI270774v1_alt:223542-223660) beyond the length of chr2_KI270774v1_alt size (223625 bp).  Skipping.
