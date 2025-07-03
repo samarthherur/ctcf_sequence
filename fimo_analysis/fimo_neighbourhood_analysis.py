@@ -150,7 +150,7 @@ def main():
     plot_logo_from_fasta(wr_fasta)
     print("Saved heatmap and logo for repeat-free sequences")
 
-    count_neighbourhood_windows(output_dir, n_a, n_b, report)
+    count_neighbourhood_windows(output_dir, n_a, n_b)
 
     # -- Generate binary overlap matrix for ChIP and boundary on each window --
     matrix_neighbourhood(os.path.join(output_dir, f"fimo_neighbourhood_{n_a}_{n_b}.bed"), chip_filepath, boundary, output_dir)
