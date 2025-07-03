@@ -367,7 +367,7 @@ def plot_intersect_distribution(int_scores, no_int_scores, output_dir, n_a, n_b,
 
 # -------------------------------------------------------------------------------------------------
 # Count windows for various neighbourhood stages and repeat-free sequences
-def count_neighbourhood_windows(output_dir, n_a, n_b, report):
+def count_neighbourhood_windows(output_dir, n_a, n_b):
     """
     Count windows for raw, filtered, intersecting, non-intersecting stages,
     plus repeat-free sequences, writing counts to report.
@@ -386,10 +386,10 @@ def count_neighbourhood_windows(output_dir, n_a, n_b, report):
         if os.path.exists(path):
             with open(path) as bf:
                 cnt = sum(1 for _ in bf)
-            report.write(f"Number of {name} neighbourhood windows: {cnt}\n")
+            print(f"Number of {name} neighbourhood windows: {cnt}")
 
     wr_fasta = os.path.join(output_dir, f"fimo_neighbourhood_{n_a}_{n_b}_filtered_wr.fasta")
     if os.path.exists(wr_fasta):
         cnt = sum(1 for _ in SeqIO.parse(wr_fasta, "fasta"))
-        report.write(f"Number of repeat-free sequences: {cnt}\n")
+        print(f"Number of repeat-free sequences: {cnt}")
     

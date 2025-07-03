@@ -54,10 +54,11 @@ def main():
     # -- Create output directory if it does not exist --
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-
-    # -- Open summary report file for logging results --
+    # Redirect all stdout and stderr to the summary report file
     report_path = os.path.join(output_dir, 'summary.txt')
-    report = open(report_path, 'w')
+    report_file = open(report_path, 'w')
+    sys.stdout = report_file
+    sys.stderr = report_file
 
     # -- Generate neighbourhood FASTA and BED from FIMO hits --
     fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, n_a, n_b)
@@ -71,7 +72,7 @@ def main():
     neigh_bed = pd.read_csv(os.path.join(output_dir, f"fimo_neighbourhood_{n_a}_{n_b}.bed"), sep='\t', header=None)
 
     median_all = neigh_bed[4].median()
-    report.write(f"Median score (all neighbourhoods): {median_all}\n")
+    print(f"Median score (all neighbourhoods): {median_all}")
 
     # -- Filter neighbourhood windows by ChIP-seq peaks and re-plot --
     chip_filtered_neighbourhood(os.path.join(output_dir, f"fimo_neighbourhood_{n_a}_{n_b}.bed"), chip_filepath, genome_fasta)
@@ -92,20 +93,20 @@ def main():
     int_bed = pd.read_csv(os.path.join(output_dir, f"fimo_neighbourhood_{n_a}_{n_b}_filtered_int_boundary.bed"), sep='\t', header=None)
 
     median_int = int_bed[4].median()
-    report.write(f"Median score (intersecting boundary): {median_int}\n")
+    print(f"Median score (intersecting boundary): {median_int}")
 
     #read in no int bed file
     no_int_bed = pd.read_csv(os.path.join(output_dir, f"fimo_neighbourhood_{n_a}_{n_b}_filtered_no_int_boundary.bed"), sep='\t', header=None)
 
     median_no_int = no_int_bed[4].median()
-    report.write(f"Median score (non-intersecting boundary): {median_no_int}\n")
+    print(f"Median score (non-intersecting boundary): {median_no_int}")
 
     plot_intersect_distribution(int_bed[4], no_int_bed[4], output_dir, n_a, n_b)
 
     # -- Perform Kolmogorov–Smirnov test between intersecting and non-intersecting scores --
     statistic, pvalue = stats.ks_2samp(int_bed[4], no_int_bed[4])
-    report.write(f"KS test statistic: {statistic}\n")
-    report.write(f"KS test p-value: {pvalue}\n")
+    print(f"KS test statistic: {statistic}")
+    print(f"KS test p-value: {pvalue}")
 
     # -- Run motif_strength_script to classify motifs by boundary and strand relationships --
     filtered_fimo = os.path.join(output_dir, 'fimo_filtered.tsv')
@@ -120,34 +121,34 @@ def main():
         filtered_fimo,
         classified_motifs
     )
-    report.write(f"Filtered FIMO saved to: {filtered_fimo}\n")
-    report.write(f"Classified motifs saved to: {classified_motifs}\n")
+    print(f"Filtered FIMO saved to: {filtered_fimo}")
+    print(f"Classified motifs saved to: {classified_motifs}")
 
-    summarize_classified_motifs(classified_motifs, output_dir, report)
+    summarize_classified_motifs(classified_motifs, output_dir)
 
     # -- Filter out sequences containing Ns or lowercase bases and log base counts --
     filtered_fasta = os.path.join(output_dir, f"fimo_neighbourhood_{n_a}_{n_b}_filtered.fasta")
     seqs_wr, n_wr = fasta_without_repeats(filtered_fasta)
-    report.write(f"Sequences without repeats: {n_wr}\n")
+    print(f"Sequences without repeats: {n_wr}")
 
     # Count nucleotides in repeat-free sequences
     count_dict = {}
     for rec in seqs_wr:
         for nt in rec.seq:
             count_dict[nt] = count_dict.get(nt, 0) + 1
-    report.write("Base counts without repeats:\n")
+    print("Base counts without repeats:")
     for nt in sorted(count_dict):
-        report.write(f"{nt}: {count_dict[nt]}\n")
+        print(f"{nt}: {count_dict[nt]}")
 
     # -- Write cleaned FASTA of repeat-free sequences --
     wr_fasta = filtered_fasta.replace('.fasta', '_wr.fasta')
     SeqIO.write(seqs_wr, wr_fasta, 'fasta')
-    report.write(f"Saved repeat-free FASTA to: {wr_fasta}\n")
+    print(f"Saved repeat-free FASTA to: {wr_fasta}")
 
     # -- Visualize repeat-free neighbourhood sequences --
     plot_fasta_heatmap(wr_fasta)
     plot_logo_from_fasta(wr_fasta)
-    report.write("Saved heatmap and logo for repeat-free sequences\n")
+    print("Saved heatmap and logo for repeat-free sequences")
 
     count_neighbourhood_windows(output_dir, n_a, n_b, report)
 
@@ -157,8 +158,8 @@ def main():
     #count number of 1s in each column
     matrix = pd.read_csv(os.path.join(output_dir, f"neighbourhood_matrix.tsv"), sep='\t') 
 
-    # -- Close the summary report file --
-    report.close()
+    # Close the summary report file
+    report_file.close()
 
 if __name__ == "__main__":
     main()
