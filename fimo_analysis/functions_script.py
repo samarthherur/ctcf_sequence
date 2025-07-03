@@ -133,8 +133,6 @@ def fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, n_a = 50, n_b
 #####################################################################################################################
 
 ###function to plot fasta into heatmap
-
-
 def plot_fasta_heatmap(fasta_file):
     #parse the fasta file
     list_seq = []
