@@ -232,7 +232,7 @@ def filter_fimo_by_ctcf_peaks(fimo_tsv, ctcf_peaks_bed, output_tsv):
 
 ##############################################################################################################
 # -------------------------------------------------------------------------------------------------
-def summarize_classified_motifs(classified_tsv, output_dir, report):
+def summarize_classified_motifs(classified_tsv, output_dir):
     """
     Summarize classified motifs: counts, medians, KS tests, and density plot.
     """
@@ -246,23 +246,23 @@ def summarize_classified_motifs(classified_tsv, output_dir, report):
 
     df = pd.read_csv(classified_tsv, sep='\t')
     total = len(df)
-    report.write(f"Total classified motifs: {total}\n")
+    print(f"Total classified motifs: {total}")
 
     classes = np.sort(df['classification'].unique())
     for cls in classes:
         cnt = (df['classification'] == cls).sum()
-        report.write(f"Count {cls}: {cnt}\n")
+        print(f"Count {cls}: {cnt}")
 
     for cls in classes:
         med = df.loc[df['classification']==cls, 'score'].median()
-        report.write(f"Median score {cls}: {med}\n")
+        print(f"Median score {cls}: {med}")
 
     for c1, c2 in combinations(classes, 2):
         stat, pval = stats.ks_2samp(
             df.loc[df['classification']==c1, 'score'],
             df.loc[df['classification']==c2, 'score']
         )
-        report.write(f"KS {c1} vs {c2}: stat={stat}, p={pval}\n")
+        print(f"KS {c1} vs {c2}: stat={stat}, p={pval}")
 
     plt.figure(figsize=(8, 6))
     for cls in classes:
@@ -274,7 +274,7 @@ def summarize_classified_motifs(classified_tsv, output_dir, report):
     outfile = os.path.join(output_dir, 'classification_density.png')
     plt.savefig(outfile)
     plt.close()
-    report.write(f"Density plot saved to: {outfile}\n")
+    print(f"Density plot saved to: {outfile}")
 
 # Example usage
 if __name__ == '__main__':
