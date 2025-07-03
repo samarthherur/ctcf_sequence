@@ -67,7 +67,11 @@ def fimo_to_neighbourhood(fimo_filepath, output_dir, genome_fasta, n_a = 50, n_b
     # Minus strand: upstream (genomic downstream) by n_a, downstream by n_b
     fimo_minus['start'] = fimo_minus['start'] - n_b
     fimo_minus['stop']  = fimo_minus['stop'] + n_a
-    
+
+    # Remove rows where start or stop is negative
+    fimo_plus = fimo_plus[(fimo_plus['start'] >= 0) & (fimo_plus['stop'] >= 0)].reset_index(drop=True)
+    fimo_minus = fimo_minus[(fimo_minus['start'] >= 0) & (fimo_minus['stop'] >= 0)].reset_index(drop=True)
+
     # Build 'name' column
     for df in (fimo_plus, fimo_minus):
         df['name'] = (
