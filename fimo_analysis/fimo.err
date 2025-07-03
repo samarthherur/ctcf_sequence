@@ -1,1 +1,51 @@
 /bin/bash: /apps/compilers/anaconda3-2023.3/lib/libtinfo.so.6: no version information available (required by /bin/bash)
+Error: malformed BED entry at line 451934. Start Coordinate detected that is < 0. Exiting.
+Error: malformed BED entry at line 417610. Start Coordinate detected that is < 0. Exiting.
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: malformed BED entry at line 451934. Start Coordinate detected that is < 0. Exiting.
+Error: malformed BED entry at line 417610. Start Coordinate detected that is < 0. Exiting.
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_50_50/fimo_neighbourhood_50_50.bed. Record is 
+chr15_KI270905v1_alt	-6	112	chr15_KI270905v1_alt:-6-112	10.1475	+
+Feature (chr12_KI270834v1_alt:119467-119517) beyond the length of chr12_KI270834v1_alt size (119498 bp).  Skipping.
+Error: malformed BED entry at line 460468. Start Coordinate detected that is < 0. Exiting.
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_20_12/fimo_neighbourhood_20_12.bed. Record is 
+chr22_GL383583v2_alt	-10	40	chr22_GL383583v2_alt:-10-40	7.81967	-
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_20_12/fimo_neighbourhood_20_12.bed. Record is 
+chr22_GL383583v2_alt	-10	40	chr22_GL383583v2_alt:-10-40	7.81967	-
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_20_12/fimo_neighbourhood_20_12.bed. Record is 
+chr22_GL383583v2_alt	-10	40	chr22_GL383583v2_alt:-10-40	7.81967	-
+Feature (chr12_KI270834v1_alt:119467-119517) beyond the length of chr12_KI270834v1_alt size (119498 bp).  Skipping.
+Error: malformed BED entry at line 460468. Start Coordinate detected that is < 0. Exiting.
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_20_12/fimo_neighbourhood_20_12.bed. Record is 
+chr22_GL383583v2_alt	-10	40	chr22_GL383583v2_alt:-10-40	7.81967	-
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_20_12/fimo_neighbourhood_20_12.bed. Record is 
+chr22_GL383583v2_alt	-10	40	chr22_GL383583v2_alt:-10-40	7.81967	-
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_20_12/fimo_neighbourhood_20_12.bed. Record is 
+chr22_GL383583v2_alt	-10	40	chr22_GL383583v2_alt:-10-40	7.81967	-
+Error: malformed BED entry at line 451934. Start Coordinate detected that is < 0. Exiting.
+Feature (chr17_GL000258v2_alt:1821936-1821996) beyond the length of chr17_GL000258v2_alt size (1821992 bp).  Skipping.
+Feature (chr2_KI270774v1_alt:223572-223632) beyond the length of chr2_KI270774v1_alt size (223625 bp).  Skipping.
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_20_22/fimo_neighbourhood_20_22.bed. Record is 
+chr19_KI270868v1_alt	-8	52	chr19_KI270868v1_alt:-8-52	15.2295	-
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_20_22/fimo_neighbourhood_20_22.bed. Record is 
+chr19_KI270868v1_alt	-8	52	chr19_KI270868v1_alt:-8-52	15.2295	-
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/H1esc_CTCF_20_22/fimo_neighbourhood_20_22.bed. Record is 
+chr19_KI270868v1_alt	-8	52	chr19_KI270868v1_alt:-8-52	15.2295	-
+Error: malformed BED entry at line 451934. Start Coordinate detected that is < 0. Exiting.
+Feature (chr17_GL000258v2_alt:1821936-1821996) beyond the length of chr17_GL000258v2_alt size (1821992 bp).  Skipping.
+Feature (chr2_KI270774v1_alt:223572-223632) beyond the length of chr2_KI270774v1_alt size (223625 bp).  Skipping.
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_20_22/fimo_neighbourhood_20_22.bed. Record is 
+chr19_KI270868v1_alt	-8	52	chr19_KI270868v1_alt:-8-52	15.2295	-
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_20_22/fimo_neighbourhood_20_22.bed. Record is 
+chr19_KI270868v1_alt	-8	52	chr19_KI270868v1_alt:-8-52	15.2295	-
+Error: Invalid record in file /home/samarth/ctcf_sequence_data/output/fimo/HFF_CTCF_20_22/fimo_neighbourhood_20_22.bed. Record is 
+chr19_KI270868v1_alt	-8	52	chr19_KI270868v1_alt:-8-52	15.2295	-
