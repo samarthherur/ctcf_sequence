@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #SBATCH --job-name=nplb_classify
 #SBATCH --output=nplb_classify.out

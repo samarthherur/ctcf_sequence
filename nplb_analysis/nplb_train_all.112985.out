@@ -1,0 +1,210 @@
+
+
+Processing details:
+
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+

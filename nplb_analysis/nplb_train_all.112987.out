@@ -1,0 +1,3039 @@
+
+
+Processing details:
+
+Directory /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train was already present.
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_0_0_train_2/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Directory /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train was already present.
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_0_0_train_2/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Directory /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train was already present.
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_12_train_2/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Directory /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train was already present.
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_20_22_train_2/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Directory /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train was already present.
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_12_train_2/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Directory /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train was already present.
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_20_22_train_2/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Directory /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train was already present.
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/H1esc_50_50_train_2/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+
+
+Processing details:
+
+Directory /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train was already present.
+Output saved in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2.
+Output file containing labels will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/architectureDetails.txt
+Model details will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/modelOut.txt
+Model details will also be saved in HTML format as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/PAlogo.html
+Cross validation likelihood of all the trained models will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/CVLikelihoods.txt
+An HTML file for the best model per lambda for each fold of every architecture will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/Lambda_<lambda>/Architecture_<architecture>/Fold_<fold>/PAlogo.html
+Best model will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/bestModel.p
+Best model will also be saved per lambda value as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/Lambda_<lambda>/bestModel.p
+Execution settings will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/settings.txt
+Image matrices for the best model and the original unclustered one will be saved as /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/PAimage.png and /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/rawImage.png respectively.
+Image matrices will also be saved per lambda value in /home/samarth/ctcf_sequence_data/output/NPLB/HFF_50_50_train_2/Lambda_<lambda>/
+Maximum number of models to be learnt: 20
+Maximum number of cores that will be used: 75
+
+
+Processing. Please wait...
+
+
+
+Trying Lambda 0 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 2 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 2 of model with 9 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 5 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 30% complete
+
+**** Learning models with 12 and 13 architectures ****
+
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 4 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 1 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 2 of model with 12 architectures
+> Completed training fold 3 of model with 12 architectures
+> Completed training fold 4 of model with 12 architectures
+> Completed training fold 2 of model with 13 architectures
+> Completed training fold 3 of model with 13 architectures
+> Completed training fold 1 of model with 12 architectures
+> Completed training fold 4 of model with 13 architectures
+> Completed training fold 1 of model with 13 architectures
+> Completed training fold 5 of model with 13 architectures
+> Completed training fold 5 of model with 12 architectures
+
+>>Cross validation likelihood computed for model with 12 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 35% complete
+
+
+>>Cross validation likelihood computed for model with 13 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 40% complete
+
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 14
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Trying Lambda 1 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 3 of model with 18 architectures
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 4 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 3 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 4 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+> Completed training fold 5 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 4 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 12 and 13 architectures ****
+
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 4 of model with 9 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 5 of model with 14 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 4 of model with 14 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 4 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 1 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 4 of model with 14 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 3 of model with 18 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 5 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+> Completed training fold 5 of model with 13 architectures
+> Completed training fold 3 of model with 13 architectures
+> Completed training fold 3 of model with 12 architectures
+> Completed training fold 1 of model with 13 architectures
+> Completed training fold 5 of model with 12 architectures
+> Completed training fold 2 of model with 12 architectures
+> Completed training fold 1 of model with 12 architectures
+> Completed training fold 4 of model with 12 architectures
+> Completed training fold 2 of model with 13 architectures
+> Completed training fold 4 of model with 13 architectures
+
+>>Cross validation likelihood computed for model with 12 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 40% complete
+
+
+>>Cross validation likelihood computed for model with 13 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 45% complete
+
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 16
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Trying Lambda 1 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 5 of model with 11 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 1 of model with 9 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 20% complete
+
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 10
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 4 of model with 17 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 3 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 1 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 40% complete
+
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+[########                                ] 20%> Completed training fold 4 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 1 of model with 14 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+[########                                ] 20%[################                        ] 40%[################                        ] 40%[########                                ] 20%> Completed training fold 2 of model with 19 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 3 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 40% complete
+
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+[########################                ] 60%[########################                ] 60%[################                        ] 40%[########################                ] 60%[################################        ] 80%[################################        ] 80%[########################################] 100%[################################        ] 80%
+
+Trying Lambda 3 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+[########################################] 100%[########################################] 100%
+
+Model learnt successfully.
+Saving details...
+Goodbye!
+
+
+Trying Lambda 1 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 1 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 4 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 3 of model with 18 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 4 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 3 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 5 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 10% complete
+
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 2 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 3 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 45% complete
+
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 17
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 1 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Model learnt successfully.
+Saving details...
+Goodbye!
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 1 of model with 14 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+> Completed training fold 5 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%[########                                ] 20%> Completed training fold 3 of model with 17 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 3 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Trying Lambda 1 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 4 of model with 17 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+> Completed training fold 3 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 2 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%> Completed training fold 5 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 3 of model with 18 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 2 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+[########################################] 100%
+
+Trying Lambda 1 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+[########                                ] 20%> Completed training fold 2 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%> Completed training fold 2 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+> Completed training fold 1 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+
+
+Trying Lambda 1 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 5 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 2 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 2 of model with 9 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%> Completed training fold 5 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 2 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 1 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 4 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+
+
+Trying Lambda 3 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 3 of model with 17 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 3 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 1 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 5 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 1 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 4 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 2 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 3 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 3 of model with 18 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 5 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%> Completed training fold 1 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 4 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 2 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%
+
+Trying Lambda 1 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 1 of model with 17 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 3 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 2 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 3 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 2 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+[########                                ] 20%> Completed training fold 4 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 2 of model with 9 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 3 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Model learnt successfully.
+Saving details...
+Goodbye!
+[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Trying Lambda 1 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%> Completed training fold 2 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%
+
+Model learnt successfully.
+Saving details...
+Goodbye!
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 4 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 2 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Model learnt successfully.
+Saving details...
+Goodbye!
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 2 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Model learnt successfully.
+Saving details...
+Goodbye!
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 3 of model with 18 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 5 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 2 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 4 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 2 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 2 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 3 of model with 17 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 3 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 4 of model with 18 architectures
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+> Completed training fold 2 of model with 19 architectures
+> Completed training fold 5 of model with 19 architectures
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 3 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Trying Lambda 3 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%> Completed training fold 4 of model with 9 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 5 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 1 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 4 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 3 of model with 11 architectures
+> Completed training fold 2 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+[########                                ] 20%[################                        ] 40%[########################                ] 60%> Completed training fold 1 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 3 of model with 16 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 1 of model with 15 architectures
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 35% complete
+
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 15
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%[################################        ] 80%[########################################] 100%
+
+Trying Lambda 3 
+
+
+**** Learning models with 1 architecture ****
+
+> Completed training fold 1 of model with 1 architecture
+> Completed training fold 2 of model with 1 architecture
+> Completed training fold 3 of model with 1 architecture
+> Completed training fold 4 of model with 1 architecture
+> Completed training fold 5 of model with 1 architecture
+
+>>Cross validation likelihood computed for model with 1 architecture
+
+Best model till now has 1 architecture
+
+PROGRESS: 5% complete
+
+**** Learning models with 9, 10 and 11 architectures ****
+
+[########                                ] 20%> Completed training fold 5 of model with 9 architectures
+> Completed training fold 1 of model with 9 architectures
+> Completed training fold 4 of model with 9 architectures
+> Completed training fold 3 of model with 9 architectures
+> Completed training fold 2 of model with 9 architectures
+> Completed training fold 3 of model with 10 architectures
+> Completed training fold 4 of model with 10 architectures
+> Completed training fold 1 of model with 10 architectures
+
+>>Cross validation likelihood computed for model with 9 architectures
+
+Best model till now has 9 architectures
+
+PROGRESS: 10% complete
+
+> Completed training fold 2 of model with 10 architectures
+> Completed training fold 5 of model with 10 architectures
+> Completed training fold 1 of model with 11 architectures
+> Completed training fold 5 of model with 11 architectures
+> Completed training fold 4 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 10 architectures
+
+Best model till now has 10 architectures
+
+PROGRESS: 15% complete
+
+> Completed training fold 2 of model with 11 architectures
+> Completed training fold 3 of model with 11 architectures
+
+>>Cross validation likelihood computed for model with 11 architectures
+
+Best model till now has 11 architectures
+
+PROGRESS: 20% complete
+
+**** Learning models with 14, 15 and 16 architectures ****
+
+[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Model learnt successfully.
+Saving details...
+Goodbye!
+> Completed training fold 5 of model with 14 architectures
+> Completed training fold 3 of model with 14 architectures
+> Completed training fold 2 of model with 14 architectures
+> Completed training fold 2 of model with 15 architectures
+> Completed training fold 1 of model with 14 architectures
+> Completed training fold 3 of model with 15 architectures
+> Completed training fold 4 of model with 14 architectures
+> Completed training fold 1 of model with 15 architectures
+> Completed training fold 4 of model with 15 architectures
+> Completed training fold 2 of model with 16 architectures
+> Completed training fold 5 of model with 15 architectures
+> Completed training fold 1 of model with 16 architectures
+> Completed training fold 3 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 14 architectures
+
+Best model till now has 14 architectures
+
+PROGRESS: 25% complete
+
+> Completed training fold 4 of model with 16 architectures
+> Completed training fold 5 of model with 16 architectures
+
+>>Cross validation likelihood computed for model with 15 architectures
+
+Best model till now has 15 architectures
+
+PROGRESS: 30% complete
+
+
+>>Cross validation likelihood computed for model with 16 architectures
+
+Best model till now has 16 architectures
+
+PROGRESS: 35% complete
+
+**** Learning models with 17, 18 and 19 architectures ****
+
+> Completed training fold 4 of model with 17 architectures
+> Completed training fold 3 of model with 17 architectures
+> Completed training fold 4 of model with 18 architectures
+> Completed training fold 5 of model with 18 architectures
+> Completed training fold 1 of model with 17 architectures
+> Completed training fold 5 of model with 17 architectures
+> Completed training fold 2 of model with 18 architectures
+> Completed training fold 2 of model with 17 architectures
+> Completed training fold 4 of model with 19 architectures
+> Completed training fold 3 of model with 18 architectures
+> Completed training fold 1 of model with 18 architectures
+> Completed training fold 3 of model with 19 architectures
+> Completed training fold 5 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 17 architectures
+
+Best model till now has 17 architectures
+
+PROGRESS: 40% complete
+
+> Completed training fold 1 of model with 19 architectures
+> Completed training fold 2 of model with 19 architectures
+
+>>Cross validation likelihood computed for model with 18 architectures
+
+Best model till now has 18 architectures
+
+PROGRESS: 45% complete
+
+
+>>Cross validation likelihood computed for model with 19 architectures
+
+Best model till now has 19 architectures
+
+PROGRESS: 50% complete
+
+> Completed training fold 2 of model with 20 architectures
+> Completed training fold 3 of model with 20 architectures
+> Completed training fold 4 of model with 20 architectures
+> Completed training fold 1 of model with 20 architectures
+> Completed training fold 5 of model with 20 architectures
+
+PROGRESS: 100% complete
+
+
+
+Structure of best model
+
+Number of architectures: 19
+
+
+Learning best model. Please wait...
+
+[                                        ] 0%[########                                ] 20%[################                        ] 40%[########################                ] 60%[################################        ] 80%[########################################] 100%
+
+Model learnt successfully.
+Saving details...
+Goodbye!
